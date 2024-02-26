@@ -1,0 +1,24 @@
+[devshell]
+packages = [
+  "nix"
+]
+
+[[commands]]
+package = "colmena"
+
+[[commands]]
+package = "minicom"
+
+[[commands]]
+package = "rpiboot"
+
+[[commands]]
+help = "colmena build"
+name = "build"
+command = "colmena build --keep-result \"$@\""
+
+[[commands]]
+help = "colmena apply"
+name = "apply"
+command = "colmena apply --keep-result \"$@\""
+
