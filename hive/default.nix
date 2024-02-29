@@ -1,4 +1,4 @@
-{ nixpkgs, nix_configs }:
+{ nixpkgs, nix_configs, nixos-hardware, retronix, sway-gnome }:
 let
   postpiCount = 7;
   postpiConfig = nodeName: {
