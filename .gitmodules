@@ -1,20 +1,16 @@
-[submodule "dev-dependencies/nixos-hardware"]
-	path = dev-dependencies/nixos-hardware
+[submodule "dev/nixos-hardware"]
+	path = dev/nixos-hardware
 	url = git@github.com:coreyoconnor/nixos-hardware
 	branch = dev
-[submodule "dev-dependencies/retronix"]
-	path = dev-dependencies/retronix
+[submodule "dev/retronix"]
+	path = dev/retronix
 	url = git@github.com:coreyoconnor/retronix
 	branch = dev
-[submodule "dev-dependencies/sway-gnome"]
-	path = dev-dependencies/sway-gnome
+[submodule "dev/sway-gnome"]
+	path = dev/sway-gnome
 	url = git@github.com:coreyoconnor/sway-gnome
 	branch = dev
-[submodule "dev-dependencies/nixpkgs"]
-	path = dev-dependencies/nixpkgs
+[submodule "dev/nixpkgs"]
+	path = dev/nixpkgs
 	url = git@github.com:coreyoconnor/nixpkgs
-	branch = dev
-[submodule "dev-dependencies/nix_configs"]
-	path = dev-dependencies/nix_configs
-	url = git@github.com:coreyoconnor/nix_configs
 	branch = dev

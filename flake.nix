@@ -2,27 +2,92 @@
   description = "";
 
   inputs = {
-    nixpkgs.url = "github:coreyoconnor/nixpkgs/integ";
-    nix_configs.url = "github:coreyoconnor/nix_configs/dev";
-    nixos-hardware.url = "github:coreyoconnor/nixos-hardware/dev";
-    retronix.url = "github:coreyoconnor/retronix/dev";
-    sway-gnome.url = "github:coreyoconnor/sway-gnome/dev";
-    flake-utils.url = "github:numtide/flake-utils";
-    devshell.url = "github:numtide/devshell";
+    nixpkgs.url = "github:coreyoconnor/nixpkgs/main";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/master";
+
+    nix_configs = {
+      url = "github:coreyoconnor/nix_configs/dev-lib";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-unstable.follows = "nixpkgs-unstable";
+      };
+    };
+
+    nixos-hardware.url = "github:coreyoconnor/nixos-hardware/main";
+
+    retronix = {
+      url = "github:coreyoconnor/retronix/main";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+    sway-gnome = {
+      url = "github:coreyoconnor/sway-gnome/main";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+
+    cpu-microcodes = {
+      url = "github:platomav/CPUMicrocodes/ec5200961ecdf78cf00e55d73902683e835edefd";
+      flake = false;
+    };
+    ucodenix = {
+      url = "github:e-tho/ucodenix";
+      inputs.cpu-microcodes.follows = "cpu-microcodes";
+    };
   };
 
-  outputs = { self, nixpkgs, nix_configs, nixos-hardware, retronix, sway-gnome, devshell, flake-utils }:
-    let hive = import ./hive/default.nix { inherit nixpkgs nix_configs nixos-hardware retronix sway-gnome; };
-    in { colmena = hive; } // flake-utils.lib.eachDefaultSystem (system: {
-      devShell =
-        let
-          pkgs = import nixpkgs {
-            inherit system;
-            overlays = [ devshell.overlays.default ];
-          };
-        in
-        pkgs.devshell.mkShell {
-          imports = [ (pkgs.devshell.importTOML ./devshell.toml) ];
+  outputs = { self, nix_configs, ... }@inputs:
+    nix_configs.lib.mkFlake inputs {
+      systems = {
+        deny = {system = "x86_64-linux";};
+        glowness = {system = "x86_64-linux";};
+        retronix-vm = {system = "x86_64-linux";};
+        thrash = {system = "x86_64-linux";};
+        ufo = {system = "x86_64-linux"; };
+        # systems that are not in the `computers/<hostname>` structure:
+        installer-x86-iso = {
+          name = "installer-x86-iso";
+          system = "x86_64-linux";
+          configPath = "${self}/installer";
+          imageBuild = true;
         };
-    });
+        postpi-0 = {
+          name = "postpi-0-image";
+          system = "aarch64-linux";
+          configPath = "${self}/computers/postpi-0.nix";
+          imageBuild = true;
+        };
+      };
+
+      devFlakes = {
+        nixos-hardware = {
+          url = "git@github.com:coreyoconnor/nixos-hardware";
+          branch = "dev";
+          prodUrl = "git@github.com:coreyoconnor/nixos-hardware";
+          prodBranch = "master";
+        };
+        retronix = {
+          url = "git@github.com:coreyoconnor/retronix";
+          branch = "dev";
+          prodUrl = "git@github.com:coreyoconnor/retronix";
+          prodBranch = "main";
+        };
+        sway-gnome = {
+          url = "git@github.com:coreyoconnor/sway-gnome";
+          branch = "dev";
+          prodUrl = "git@github.com:coreyoconnor/sway-gnome";
+          prodBranch = "main";
+        };
+        nixpkgs = {
+          url = "git@github.com:coreyoconnor/nixpkgs";
+          branch = "dev";
+          prodUrl = "git@github.com:coreyoconnor/nixpkgs";
+          prodBranch = "main";
+          upstreamUrl = "https://github.com/NixOS/nixpkgs.git";
+          upstreamBranch = "nixos-25.05";
+        };
+      };
+    };
 }

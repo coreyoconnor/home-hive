@@ -1,36 +1,6 @@
-[devshell]
-load_profiles = true
-packages = [
-  "nix"
-]
-
 [[commands]]
 package = "minicom"
 
 [[commands]]
 package = "rpiboot"
-
-[[commands]]
-package = "colmena"
-help = "uses flake dependencies and flake lock"
-
-[[commands]]
-help = "colmena build using git submodule dev checkouts"
-name = "dev-build"
-command = "colmena build --config hive/dev.nix --keep-result \"$@\""
-
-[[commands]]
-help = "colmena apply using git submodule dev checkouts"
-name = "dev-apply"
-command = "colmena apply --config hive/dev.nix --keep-result \"$@\""
-
-[[commands]]
-help = "colmena eval using git submodule dev checkouts"
-name = "dev-eval"
-command = "colmena eval --config hive/dev.nix --keep-result \"$@\""
-
-[[commands]]
-help = "colmena repl using git submodule dev checkouts"
-name = "dev-repl"
-command = "colmena repl --config hive/dev.nix --keep-result \"$@\""
 
