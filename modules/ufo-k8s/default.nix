@@ -2,12 +2,14 @@
   config,
   pkgs,
   lib,
+  nix-kube-modules,
   ...
 }:
 with lib; let
   cfg = config.ufo-k8s;
 in {
   imports = [
+    nix-kube-modules.nixosModules.helm
   ];
 
   options = {

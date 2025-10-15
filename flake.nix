@@ -36,6 +36,9 @@
       url = "github:e-tho/ucodenix";
       inputs.cpu-microcodes.follows = "cpu-microcodes";
     };
+
+    # TODO: migrate from
+    nix-kube-modules.url = "github:coreyoconnor/nix-kube-modules";
   };
 
   outputs = { self, nix_configs, ... }@inputs:
