@@ -7,7 +7,7 @@
 }:
 with lib;
 let
-  nixpkgs-unstable-pkgs = pkgs; # nixpkgs-unstable.legacyPackages.${pkgs.system};
+  nixpkgs-unstable-pkgs = nixpkgs-unstable.legacyPackages.${pkgs.system};
 in {
   options.services.qa-house-manager = {
     enable = mkOption {
@@ -17,13 +17,13 @@ in {
     };
   };
 
-  #disabledModules = [
-  #  "services/home-automation/home-assistant.nix"
-  #];
+  disabledModules = [
+    "services/home-automation/home-assistant.nix"
+  ];
 
-  #imports = [
-  #  "${nixpkgs-unstable}/nixos/modules/services/home-automation/home-assistant.nix"
-  #];
+  imports = [
+    "${nixpkgs-unstable}/nixos/modules/services/home-automation/home-assistant.nix"
+  ];
 
   config = mkIf config.services.qa-house-manager.enable {
     services.mosquitto = {

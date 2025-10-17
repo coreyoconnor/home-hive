@@ -13,3 +13,4 @@ result-*
 .version-suffix
 
 .DS_Store
+.deploy-gc

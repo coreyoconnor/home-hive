@@ -6,6 +6,7 @@
 }:
 with lib; rec {
   imports = [
+    ./default-services.nix
     ./nixpkgs-config.nix
     ./fonts.nix
     ./standard-admin.nix

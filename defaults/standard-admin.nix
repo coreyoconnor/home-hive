@@ -5,7 +5,9 @@
   nixpkgs-unstable,
   ...
 }:
-with lib; {
+with lib; let
+  nvim-unstable = (nixpkgs-unstable.legacyPackages.${pkgs.system}.neovim);
+in {
   config = {
     environment.systemPackages = with pkgs; [
       acpi
@@ -16,8 +18,7 @@ with lib; {
       jq
       libsixel
       lm_sensors
-      (nixpkgs-unstable.legacyPackages.${pkgs.system}.neovim)
-      nix-index
+      nvim-unstable
       pciutils
       pcre
       ripgrep
@@ -29,7 +30,7 @@ with lib; {
       xxd
     ];
 
-    environment.variables.EDITOR = mkOverride 950 "${pkgs.neovim}/bin/nvim";
+    environment.variables.EDITOR = mkOverride 950 "${nvim-unstable}/bin/nvim";
 
     programs = {
       direnv.enable = true;
@@ -49,8 +50,6 @@ with lib; {
       forcePageTableIsolation = true;
       virtualisation.flushL1DataCache = "cond";
     };
-
-    services.openssh.enable = true;
 
     users.defaultUserShell = pkgs.fish;
   };
