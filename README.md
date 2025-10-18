@@ -1,10 +1,13 @@
 # home-hive
 
-This repository contains NixOS configurations for a network of computers ("hive"). It uses Nix Flakes for reproducible builds and is managed with the help of the [nix_configs](https://github.com/coreyoconnor/nix_configs) flake.
+This repository contains NixOS configurations for a network of computers ("hive"). It uses Nix Flakes for
+reproducible builds and is managed with the help of the
+[nix_configs](https://github.com/coreyoconnor/nix_configs) flake.
 
 ## Development
 
 To enter a development shell with necessary tools, run:
+
 ```bash
 nix develop
 ```
@@ -14,6 +17,7 @@ nix develop
 ### Build Images
 
 To build the Raspberry Pi images:
+
 ```bash
 ./bin/build-postpi-images.sh
 ```
