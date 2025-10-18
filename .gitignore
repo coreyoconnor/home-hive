@@ -14,3 +14,4 @@ result-*
 
 .DS_Store
 .deploy-gc
+.direnv

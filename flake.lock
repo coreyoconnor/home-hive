@@ -191,16 +191,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1760635722,
-        "narHash": "sha256-eSSwda4E0OLX8ps1a707zf68petT8AWUDj/QEF8/mGE=",
+        "lastModified": 1760753952,
+        "narHash": "sha256-HbioPxRZlljD08W0G3ywkIYosdWN9coxYqyssIryHTY=",
         "owner": "coreyoconnor",
         "repo": "nix_configs",
-        "rev": "94046361b2f334f60f9796ece7041ef2195d755e",
+        "rev": "e512d60d7e6a9b19c8da2d0a84972740ba5a2653",
         "type": "github"
       },
       "original": {
         "owner": "coreyoconnor",
-        "ref": "dev-lib",
+        "ref": "main",
         "repo": "nix_configs",
         "type": "github"
       }
