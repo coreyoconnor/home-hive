@@ -6,20 +6,6 @@ A key component of this setup is the use of the [nix_configs](https://github.com
 
 The project is structured to manage several distinct machines, including servers, desktops, and Raspberry Pi devices. It leverages NixOS modules to create reusable and composable configurations, making it easy to maintain and extend the system.
 
-## Building and Running
-
-The primary tool for building and deploying configurations is `colmena`, as indicated by the `bin/build-postpi-images.sh` script.
-
-### Building Raspberry Pi Images
-
-To build the Raspberry Pi images, run the following script:
-
-```bash
-./bin/build-postpi-images.sh
-```
-
-This will create `sd-image` builds for the `postpi` machines.
-
 ### Flashing Raspberry Pi Images
 
 After building, the images can be flashed to an SD card.

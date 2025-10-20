@@ -6,7 +6,8 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/master";
 
     nix_configs = {
-      url = "github:coreyoconnor/nix_configs/main";
+      # I use `dev` branch but you should use `main`
+      url = "github:coreyoconnor/nix_configs/dev";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         nixpkgs-unstable.follows = "nixpkgs-unstable";

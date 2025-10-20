@@ -12,15 +12,9 @@ To enter a development shell with necessary tools, run:
 nix develop
 ```
 
-## PostPi (Raspberry Pi) Setup
+## Raspberry Pi builds
 
-### Build Images
-
-To build the Raspberry Pi images:
-
-```bash
-./bin/build-postpi-images.sh
-```
+The `postpi-N` computers.
 
 ### Flash Images
 
