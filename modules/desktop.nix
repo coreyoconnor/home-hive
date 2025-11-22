@@ -27,10 +27,10 @@ in {
   config = mkIf cfg.enable {
     semi-active-av.enable = true;
 
-    boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_16.override {
+    boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_12.override {
       structuredExtraConfig = with lib.kernel; {
           PREEMPT = lib.mkForce yes;
-          # PREEMPT_RT = if cfg.rt then yes else no;
+          PREEMPT_RT = if cfg.rt then yes else no;
           PREEMPT_COUNT = yes;
           CONFIG_MK8 = yes;
           CONFIG_GENERIC_CPU = unset;
@@ -89,7 +89,7 @@ in {
       type = "fcitx5";
 
       fcitx5 = {
-        addons = with pkgs; [ fcitx5-rime ];
+        addons = with pkgs; [ fcitx5-chinese-addons ];
         waylandFrontend = true;
       };
     };
