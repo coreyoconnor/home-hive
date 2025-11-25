@@ -37,7 +37,7 @@ with lib; {
     };
 
     networking.firewall = {
-      allowedTCPPorts = [9191];
+      allowedTCPPorts = [9191 9091];
     };
 
     services.resolved = {

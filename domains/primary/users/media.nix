@@ -16,4 +16,8 @@ with pkgs.lib; {
       openssh.authorizedKeys.keyFiles = [./ssh/coconnor.pub];
     };
   };
+
+  services.udev.extraRules = ''
+    KERNEL=="tun", MODE="0660", GROUP="users"
+  '';
 }
