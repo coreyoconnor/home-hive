@@ -90,7 +90,7 @@
           prodUrl = "git@github.com:coreyoconnor/nixpkgs";
           prodBranch = "main";
           upstreamUrl = "https://github.com/NixOS/nixpkgs.git";
-          upstreamBranch = "nixos-25.05";
+          upstreamBranch = "nixos-25.11";
         };
       };
     };
