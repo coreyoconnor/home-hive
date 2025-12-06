@@ -10,7 +10,7 @@ with pkgs.lib; {
       createHome = true;
       uid = 1001;
       group = "users";
-      extraGroups = ["transmission" "plugdev" "audio" "video" "input" config.services.kubo.group];
+      extraGroups = ["transmission" "plugdev" "kvm" "audio" "video" "input" config.services.kubo.group];
       home = "/home/media";
       shell = pkgs.fish;
       openssh.authorizedKeys.keyFiles = [./ssh/coconnor.pub];

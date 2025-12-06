@@ -20,16 +20,12 @@ with lib; {
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
-        vaapiVdpau
+        libva-vdpau-driver
         libvdpau-va-gl
       ];
     };
 
     hardware.amdgpu = {
-      amdvlk = {
-        enable = false;
-        support32Bit.enable = false;
-      };
       opencl.enable = true;
       initrd.enable = true;
     };

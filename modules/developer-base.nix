@@ -54,7 +54,6 @@ in {
       extraConfig = ''
         ForwardAgent yes
       '';
-      startAgent = true;
     };
 
     security.pam.loginLimits = [
@@ -71,7 +70,5 @@ in {
         value = "1048576";
       }
     ];
-
-    systemd.extraConfig = "DefaultLimitNOFILE=4096:1048576";
   };
 }

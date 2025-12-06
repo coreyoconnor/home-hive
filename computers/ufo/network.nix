@@ -23,7 +23,7 @@ with lib; {
     services.nix-serve = {
       port = 4999;
       openFirewall = true;
-      bindAddress = "192.168.88.4";
+      bindAddress = "0.0.0.0";
     };
 
     services.cloudflared = {

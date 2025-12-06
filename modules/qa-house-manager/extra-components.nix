@@ -80,6 +80,7 @@
   "dsmr_reader"
   "ecobee"
   "energy"
+  "enphase_envoy"
   "esphome"
   "faa_delays"
   "fail2ban"

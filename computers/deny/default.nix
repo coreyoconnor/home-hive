@@ -59,6 +59,9 @@ with lib; {
 
     powerManagement.cpuFreqGovernor = "powersave";
 
+    programs.adb.enable = true;
+    users.users.coconnor.extraGroups = ["adbusers"];
+
     programs.captive-browser = {
       enable = true;
       interface = "wlp0s20f3";
@@ -77,7 +80,6 @@ with lib; {
     virtualisation = {
       containers.enable = true;
       waydroid.enable = true;
-      lxd.enable = true;
     };
 
     # disable fingerprint auth for initial login to ensure keychain unlock

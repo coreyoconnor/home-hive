@@ -19,6 +19,7 @@ with lib; {
         ];
     };
 
+    security.apparmor.enable = true;
     programs.gnupg.agent.enable = true;
   };
 }

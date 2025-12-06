@@ -52,6 +52,9 @@ with lib; {
 
     powerManagement.cpuFreqGovernor = "performance";
 
+    programs.adb.enable = true;
+    users.users.coconnor.extraGroups = ["adbusers"];
+
     programs.steam = {
       enable = true;
       gamescopeSession.enable = true;
@@ -69,7 +72,6 @@ with lib; {
     virtualisation = {
       containers.enable = true;
       waydroid.enable = true;
-      lxd.enable = false;
     };
   };
 }

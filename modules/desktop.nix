@@ -41,10 +41,11 @@ in {
     });
 
     environment.systemPackages = with pkgs; [
+      android-translation-layer
       appimage-run
       brightnessctl
       dracula-theme # gtk theme
-      firefox-wayland
+      firefox
       foot
       fuzzel # launcher
       evince
@@ -89,7 +90,7 @@ in {
       type = "fcitx5";
 
       fcitx5 = {
-        addons = with pkgs; [ fcitx5-chinese-addons ];
+        addons = with pkgs; [ qt6Packages.fcitx5-chinese-addons ];
         waylandFrontend = true;
       };
     };
@@ -149,11 +150,9 @@ in {
 
       sysprof.enable = true;
 
-      udev.packages = [pkgs.android-udev-rules];
-
       xserver.enable = true; # for xwayland
 
-      xserver.displayManager.gdm = {
+      displayManager.gdm = {
         enable = true;
         debug = true;
         autoSuspend = false;

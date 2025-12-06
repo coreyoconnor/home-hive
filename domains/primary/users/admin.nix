@@ -10,7 +10,7 @@ with pkgs.lib; {
       createHome = true;
       uid = 1000;
       group = "users";
-      extraGroups = ["wheel" "libvirtd" "vboxusers"];
+      extraGroups = ["wheel" "libvirtd" "kvm"];
       home = "/home/admin";
       openssh.authorizedKeys.keyFiles = [./ssh/coconnor.pub];
     };

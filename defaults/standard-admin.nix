@@ -6,7 +6,7 @@
   ...
 }:
 with lib; let
-  nvim-unstable = (nixpkgs-unstable.legacyPackages.${pkgs.system}.neovim);
+  nvim-unstable = (nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.neovim);
 in {
   config = {
     environment.systemPackages = with pkgs; [

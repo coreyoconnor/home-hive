@@ -52,7 +52,7 @@ with lib; {
       };
     };
 
-    ufo-k8s.enable = true;
+    ufo-k8s.enable = false;
     virt-host.enable = true;
   };
 }

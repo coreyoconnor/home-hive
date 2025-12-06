@@ -29,6 +29,7 @@ with pkgs.lib; {
         "vboxusers"
         "video"
         "wheel"
+        "kdm"
         config.services.kubo.group
       ];
       home = "/home/coconnor";
