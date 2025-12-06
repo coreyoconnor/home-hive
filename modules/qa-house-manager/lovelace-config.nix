@@ -7,7 +7,7 @@
         {
           type = "grid";
           cards = [
-            { type = "heading"; heading = "Outlets"; }
+            { type = "heading"; heading = "Power"; }
             {
               type = "entities";
               entities = [
@@ -21,6 +21,20 @@
                 { name = "Living Room Near Door Top Outlet"; entity = "switch.living_room_outlet_near_door_outlet_1"; }
                 { name = "Living Room Near Door Bottom Outlet"; entity = "switch.living_room_outlet_near_door_outlet_2"; }
               ];
+            }
+            {
+              type = "sensor";
+              graph = "line";
+              entity = "sensor.envoy_482536012740_current_power_production";
+              detail = 1;
+              name = "Solar";
+            }
+            {
+              type = "sensor";
+              graph = "line";
+              entity = "sensor.envoy_482536012740_current_power_consumption";
+              detail = 1;
+              name = "Usage";
             }
           ];
         }

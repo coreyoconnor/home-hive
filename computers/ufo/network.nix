@@ -14,6 +14,7 @@ with lib; {
       hostId = "abab4ab2";
       hostName = "ufo";
       useDHCP = true;
+      enableIPv6 = false;
     };
 
     services.kubo.settings = {
@@ -23,7 +24,7 @@ with lib; {
     services.nix-serve = {
       port = 4999;
       openFirewall = true;
-      bindAddress = "0.0.0.0";
+      bindAddress = "192.168.88.4";
     };
 
     services.cloudflared = {

@@ -11,10 +11,8 @@ in {
 
   config = {
     networking = {
-      # the Ids in nixos are not stable
-      # defaultGateway.interface = "enp179s0";
-
       hostId = "4a571618";
+      enableIPv6 = false;
     };
   };
 }

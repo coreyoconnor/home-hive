@@ -3,13 +3,13 @@ with lib; let
   kleenex_pollenradar = pkgs.buildHomeAssistantComponent {
     owner = "MarcoGos";
     domain = "kleenex_pollenradar";
-    version = "1.1.7";
+    version = "1.4.4";
 
     src = pkgs.fetchFromGitHub {
       owner = "MarcoGos";
       repo = "kleenex_pollenradar";
-      rev = "03656e80cb33007f15741c167a7d84d721d13e0e";
-      hash = "sha256-k7Iq69la44hoAQpuJ6TqAs9SG1kAW+zs1TtoaJvIrEM=";
+      rev = "2aebd549f81da345efa22927046517d36c38c39a";
+      hash = "sha256-4yasiZUj7Nexqu5NAsjkDvbjkMlDffjcBmpltQ/Xu9U=";
     };
 
     propagatedBuildInputs = with pkgs.home-assistant.python.pkgs; [
