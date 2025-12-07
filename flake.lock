@@ -323,11 +323,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1745799535,
-        "narHash": "sha256-A9MrTeviX9pOaIe3eysqoziyZ81K3b01TQ8IQZntpvo=",
+        "lastModified": 1764739827,
+        "narHash": "sha256-yu/ZJOx+n6+oJj7+UNVRFPZkpXt3CVoHEnOxHl/Qnt0=",
         "owner": "coreyoconnor",
         "repo": "retronix",
-        "rev": "379ca0ff515e53edac96cec1519883c28929e8e0",
+        "rev": "52ca51e38dc77137b291d15a5638e2ab19abbe2d",
         "type": "github"
       },
       "original": {
