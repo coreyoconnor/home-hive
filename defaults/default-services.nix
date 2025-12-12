@@ -13,6 +13,7 @@ with lib; {
       dbus.enable = mkDefault true;
       fstrim.enable = mkDefault true;
       fwupd.enable = mkDefault true;
+      kmscon.enable = mkDefault true;
       openssh.enable = mkDefault true;
       udisks2.enable = mkDefault true;
       upower.enable = mkDefault true;

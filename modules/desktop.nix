@@ -173,5 +173,13 @@ in {
     xdg.portal = {
       enable = true;
     };
+
+    # google drive support in nautilus etc..
+    services.gvfs = {
+      package = pkgs.gvfs.override { gnomeSupport = true; googleSupport = true; };
+    };
+    nixpkgs.config.permittedInsecurePackages = [
+      "libsoup-2.74.3"
+    ];
   };
 }

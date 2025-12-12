@@ -28,7 +28,7 @@ in {
   config =
     {
       boot.loader.grub = {
-        fontSize = 24;
+        fontSize = 32;
       };
 
       console = {
