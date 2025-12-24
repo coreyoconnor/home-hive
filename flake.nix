@@ -70,7 +70,7 @@
           url = "git@github.com:coreyoconnor/nixos-hardware";
           branch = "dev";
           prodUrl = "git@github.com:coreyoconnor/nixos-hardware";
-          prodBranch = "master";
+          prodBranch = "main";
         };
         retronix = {
           url = "git@github.com:coreyoconnor/retronix";
