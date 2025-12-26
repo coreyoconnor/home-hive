@@ -22,9 +22,10 @@ with lib; {
     };
 
     services.nix-serve = {
-      port = 4999;
-      openFirewall = true;
-      bindAddress = "192.168.88.4";
+      listenSockets = [
+        "192.168.88.4:4999"
+        "192.168.88.7:4999"
+      ];
     };
 
     services.cloudflared = {
@@ -38,7 +39,7 @@ with lib; {
     };
 
     networking.firewall = {
-      allowedTCPPorts = [9191 9091];
+      allowedTCPPorts = [4999 9191 9091];
     };
 
     services.resolved = {
