@@ -22,6 +22,7 @@ in {
   ];
 
   imports = [
+    ./ring-mqtt.nix
     "${nixpkgs-unstable}/nixos/modules/services/home-automation/home-assistant.nix"
   ];
 
@@ -75,17 +76,7 @@ in {
       package = pkgs.postgresql_14;
     };
 
-    virtualisation.oci-containers.containers = {
-      # https://github.com/tsightler/ring-mqtt-ha-addon/blob/main/config.yaml
-      ring-mqtt = {
-        image = "tsightler/ring-mqtt:5.9.1";
-        autoStart = true;
-        user = "286:286";
-        volumes = [
-          "/mnt/storage/hass/ring-mqtt:/data"
-        ];
-      };
-    };
+    services.ring-mqtt.enable = true;
 
     systemd.services.postgresql.serviceConfig.TimeoutSec = lib.mkOverride 10 666;
 
