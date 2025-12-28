@@ -9,6 +9,7 @@ with lib; {
     ../../hardware/lenovo-thinkpad-x1-7th-gen.nix
     ./filesystems.nix
     ./memory.nix
+    ./power-management.nix
     ../../domains/primary
   ];
 
@@ -56,8 +57,6 @@ with lib; {
 
     networking.firewall.enable = true;
     networking.enableIPv6 = true;
-
-    powerManagement.cpuFreqGovernor = "powersave";
 
     programs.adb.enable = true;
     users.users.coconnor.extraGroups = ["adbusers"];
