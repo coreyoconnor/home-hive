@@ -8,6 +8,7 @@ with lib; {
   imports = [
     ../../network/home
     ../../network/home/resource-media-server.nix
+    ../../network/home/resource-user-share-server.nix
   ];
   config = {
     networking = {
