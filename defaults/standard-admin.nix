@@ -9,6 +9,11 @@ with lib; let
   nvim-unstable = (nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.neovim);
 in {
   config = {
+    # task accounting
+    boot.kernel.sysctl = {
+      "task_delayacct" = 1;
+    };
+
     environment.systemPackages = with pkgs; [
       acpi
       cryptsetup

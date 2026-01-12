@@ -9,6 +9,8 @@ with lib; rec {
     ./default-services.nix
     ./nixpkgs-config.nix
     ./fonts.nix
+    ./kernel-version.nix
+    ./network.nix
     ./standard-admin.nix
     ./standard-nix.nix
     ./standard-services.nix
@@ -24,8 +26,6 @@ with lib; rec {
   };
 
   config = {
-    boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_6_12;
-
     console = {
       keyMap = "us";
     };
