@@ -6,8 +6,8 @@ self: super: {
       # rev = "ef1945c69993e8614b1a8444461d72e13652aab6";
       # hash = "sha256-pgL8LzEp6+kKLDUPzkY1ehg+4N7zGSff7kThNcaCsw0=";
       owner = "andyholmes";
-      rev = "7231f2a68257eac6ed58aa67c8272c04cc4f03e0";
-      hash = "sha256-dHVt5m5IA7nsmvqTQkk4YZJeGEHJDTeaqVBVZ85q2J0=";
+      rev = "d880881d6e78f8b19159effdd619d693467d0061";
+      hash = "sha256-rmhSpUptLJfPSnDUUvf6eVMl+KVPOTOTpF4ySr57BHc=";
       fetchSubmodules = true;
     };
   });

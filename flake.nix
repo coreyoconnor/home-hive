@@ -28,6 +28,9 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+    voxtype = {
+      url = "github:peteonrails/voxtype/main";
+    };
 
     cpu-microcodes = {
       url = "github:platomav/CPUMicrocodes/ec5200961ecdf78cf00e55d73902683e835edefd";

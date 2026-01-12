@@ -22,6 +22,7 @@ in {
 
   imports = [
     ../hardware/desktop-devices.nix
+    ./desktop
   ];
 
   config = mkIf cfg.enable {
@@ -85,16 +86,6 @@ in {
       };
     };
 
-    i18n.inputMethod = {
-      enable = true;
-      type = "fcitx5";
-
-      fcitx5 = {
-        addons = with pkgs; [ qt6Packages.fcitx5-chinese-addons ];
-        waylandFrontend = true;
-      };
-    };
-
     sway-gnome.enable = true;
 
     security.rtkit.enable = true;
@@ -109,22 +100,6 @@ in {
       gnome = {
         core-developer-tools.enable = true;
         games.enable = true;
-      };
-
-      keyd = {
-        enable = true;
-        keyboards = {
-          default = {
-            ids = ["*"];
-            settings = {
-              main = {
-                capslock = "layer(capslock)";
-              };
-
-              "capslock:C" = {};
-            };
-          };
-        };
       };
 
       kubo = {

@@ -160,6 +160,24 @@
         "type": "github"
       }
     },
+    "flake-utils_5": {
+      "inputs": {
+        "systems": "systems_6"
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "nix-kube-modules": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -314,6 +332,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_6": {
+      "locked": {
+        "lastModified": 1767767207,
+        "narHash": "sha256-Mj3d3PfwltLmukFal5i3fFt27L6NiKXdBezC1EBuZs4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "5912c1772a44e31bf1c63c0390b90501e5026886",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "retronix": {
       "inputs": {
         "cmd-on-event": "cmd-on-event",
@@ -347,7 +381,8 @@
         "nixpkgs-unstable": "nixpkgs-unstable",
         "retronix": "retronix",
         "sway-gnome": "sway-gnome",
-        "ucodenix": "ucodenix"
+        "ucodenix": "ucodenix",
+        "voxtype": "voxtype"
       }
     },
     "sbt": {
@@ -471,6 +506,21 @@
         "type": "github"
       }
     },
+    "systems_6": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
     "ucodenix": {
       "inputs": {
         "cpu-microcodes": [
@@ -506,6 +556,26 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "voxtype": {
+      "inputs": {
+        "flake-utils": "flake-utils_5",
+        "nixpkgs": "nixpkgs_6"
+      },
+      "locked": {
+        "lastModified": 1768028016,
+        "narHash": "sha256-JOlnPGIzw+SBi6RnBZvKL5B63A3/gakPktD8f/s3h8M=",
+        "owner": "peteonrails",
+        "repo": "voxtype",
+        "rev": "f437d86b03ab36c337ef786428edc36b35bd93f0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "peteonrails",
+        "ref": "main",
+        "repo": "voxtype",
         "type": "github"
       }
     }
