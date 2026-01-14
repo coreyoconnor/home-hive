@@ -57,10 +57,10 @@ with lib; let
 
     services.nfs.server.enable = true;
 
-    networking.firewall.extraCommands = ''
-      ip46tables -A INPUT -i virbr+ -j ACCEPT
-      ip46tables -A OUTPUT -o virbr+ -j ACCEPT
-    '';
+    # networking.firewall.extraCommands = ''
+    #   ip46tables -A INPUT -i virbr+ -j ACCEPT
+    #   ip46tables -A OUTPUT -o virbr+ -j ACCEPT
+    # '';
   };
   shareInit = {
     system.activationScripts.libvirtShareDir = ''
