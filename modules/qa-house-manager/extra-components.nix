@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
-[
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: [
   "accuweather"
   "advantage_air"
   "air_quality"

@@ -15,7 +15,6 @@ in {
     programs.voxtype = {
       enable = true;
       package = voxtype.packages.${pkgs.stdenv.hostPlatform.system}.rocm;
-      typingBackend = "wtype";
     };
   };
 }

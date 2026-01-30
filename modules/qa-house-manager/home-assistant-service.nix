@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib; let
   kleenex_pollenradar = pkgs.buildHomeAssistantComponent {
     owner = "MarcoGos";
@@ -16,9 +21,8 @@ with lib; let
       beautifulsoup4
     ];
 
-    patches = [ ./kleenex_pollenradar.diff ];
+    patches = [./kleenex_pollenradar.diff];
   };
-
 in {
   enable = true;
 
@@ -111,7 +115,7 @@ in {
     zeroconf = {};
   };
 
-  extraComponents = import ./extra-components.nix { inherit config lib pkgs; };
+  extraComponents = import ./extra-components.nix {inherit config lib pkgs;};
 
   openFirewall = true;
 

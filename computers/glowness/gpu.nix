@@ -12,8 +12,8 @@ with lib; {
   config = {
     boot = {
       # kernelParams = ["amdgpu.mcbp=0" "amd_iommu=off"];
-      kernelParams = [ "amd_pstate=guided" "amdgpu" ];
-      kernelModules = [ "amdgpu" ];
+      kernelParams = ["amd_pstate=guided" "amdgpu"];
+      kernelModules = ["amdgpu"];
     };
 
     hardware.graphics = {

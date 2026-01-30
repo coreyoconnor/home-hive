@@ -4,10 +4,6 @@
   ...
 }:
 with pkgs.lib; {
-  # make sure the required groups exist
-  users.groups.plugdev = {
-    gid = 10001;
-  };
 
   users.users = {
     coconnor = {

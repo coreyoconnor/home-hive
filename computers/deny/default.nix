@@ -27,13 +27,13 @@ with lib; {
 
     boot = {
       initrd = {
-        preLVMCommands =
-          let banner = pkgs.runCommand "gen-banner" {} ''
+        preLVMCommands = let
+          banner = pkgs.runCommand "gen-banner" {} ''
             mkdir $out
             ${pkgs.figlet}/bin/figlet -f doh UFO > $out/banner.txt
             ${pkgs.figlet}/bin/figlet -f broadway DENY >> $out/banner.txt
           '';
-          in ''
+        in ''
           cat ${banner}/banner.txt
         '';
       };
@@ -82,10 +82,12 @@ with lib; {
     };
 
     # disable fingerprint auth for initial login to ensure keychain unlock
-    programs.dconf.profiles.gdm.databases = [{
-      settings."org/gnome/login-screen" = {
-        enable-fingerprint-authentication = false;
-      };
-    }];
+    programs.dconf.profiles.gdm.databases = [
+      {
+        settings."org/gnome/login-screen" = {
+          enable-fingerprint-authentication = false;
+        };
+      }
+    ];
   };
 }

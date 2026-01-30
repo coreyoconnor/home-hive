@@ -8,7 +8,7 @@ with lib; {
   config = {
     services.resolved = {
       enable = true;
-      domains = [ "local" ];
+      domains = ["local"];
       llmnr = "false";
       extraConfig = ''
         MulticaseDNS=yes
@@ -22,4 +22,3 @@ with lib; {
     services.avahi.enable = false;
   };
 }
-

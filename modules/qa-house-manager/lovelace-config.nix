@@ -7,19 +7,34 @@
         {
           type = "grid";
           cards = [
-            { type = "heading"; heading = "Power"; }
+            {
+              type = "heading";
+              heading = "Power";
+            }
             {
               type = "entities";
               entities = [
-                { name = "Den Near Guest Top Outlet"; entity = "switch.den_outlet_near_guest_outlet_1"; }
-                { name = "Den Near Guest Bottom Outlet"; entity = "switch.den_outlet_near_guest_outlet_2"; }
+                {
+                  name = "Den Near Guest Top Outlet";
+                  entity = "switch.den_outlet_near_guest_outlet_1";
+                }
+                {
+                  name = "Den Near Guest Bottom Outlet";
+                  entity = "switch.den_outlet_near_guest_outlet_2";
+                }
               ];
             }
             {
               type = "entities";
               entities = [
-                { name = "Living Room Near Door Top Outlet"; entity = "switch.living_room_outlet_near_door_outlet_1"; }
-                { name = "Living Room Near Door Bottom Outlet"; entity = "switch.living_room_outlet_near_door_outlet_2"; }
+                {
+                  name = "Living Room Near Door Top Outlet";
+                  entity = "switch.living_room_outlet_near_door_outlet_1";
+                }
+                {
+                  name = "Living Room Near Door Bottom Outlet";
+                  entity = "switch.living_room_outlet_near_door_outlet_2";
+                }
               ];
             }
             {
@@ -86,15 +101,15 @@
             {
               type = "entities";
               entities = [
-                { entity = "sensor.sun_next_dawn"; }
-                { entity = "sensor.sun_next_dusk"; }
+                {entity = "sensor.sun_next_dawn";}
+                {entity = "sensor.sun_next_dusk";}
               ];
             }
             {
               type = "map";
               entities = [
-                { entity = "person.corey"; }
-                { entity = "person.daphne"; }
+                {entity = "person.corey";}
+                {entity = "person.daphne";}
               ];
               theme_mode = "auto";
             }
@@ -121,4 +136,3 @@
     }
   ];
 }
-

@@ -5,8 +5,7 @@
   lib,
   ...
 }:
-with lib;
-let
+with lib; let
   nixpkgs-unstable-pkgs = nixpkgs-unstable.legacyPackages.${pkgs.system};
 in {
   options.services.qa-house-manager = {

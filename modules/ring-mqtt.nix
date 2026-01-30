@@ -4,8 +4,7 @@
   lib,
   ...
 }:
-with lib;
-{
+with lib; {
   options.services.ring-mqtt = {
     enable = mkOption {
       default = false;

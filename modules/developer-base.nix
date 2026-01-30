@@ -5,8 +5,7 @@
   nixpkgs-unstable,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.developer-base;
   nixpkgs-unstable-pkgs = nixpkgs-unstable.legacyPackages.${pkgs.system};
 in {

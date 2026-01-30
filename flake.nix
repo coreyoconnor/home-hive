@@ -23,9 +23,10 @@
       };
     };
     sway-gnome = {
-      url = "github:coreyoconnor/sway-gnome/main";
+      url = "github:coreyoconnor/sway-gnome/dev";
       inputs = {
         nixpkgs.follows = "nixpkgs";
+        nixpkgs-unstable.follows = "nixpkgs-unstable";
       };
     };
     voxtype = {
@@ -45,14 +46,18 @@
     nix-kube-modules.url = "github:coreyoconnor/nix-kube-modules";
   };
 
-  outputs = { self, nix_configs, ... }@inputs:
+  outputs = {
+    self,
+    nix_configs,
+    ...
+  } @ inputs:
     nix_configs.lib.mkFlake inputs {
       systems = {
         deny = {system = "x86_64-linux";};
         glowness = {system = "x86_64-linux";};
         retronix-vm = {system = "x86_64-linux";};
         thrash = {system = "x86_64-linux";};
-        ufo = {system = "x86_64-linux"; };
+        ufo = {system = "x86_64-linux";};
         # systems that are not in the `computers/<hostname>` structure:
         installer-x86-iso = {
           name = "installer-x86-iso";

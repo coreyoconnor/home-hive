@@ -4,7 +4,8 @@
   config,
   pkgs,
   ...
-}: with lib; {
+}:
+with lib; {
   config = {
     nix = {
       settings = {

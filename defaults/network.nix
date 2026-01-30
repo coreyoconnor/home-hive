@@ -9,4 +9,3 @@ with lib; {
     networking.nftables.enable = true;
   };
 }
-

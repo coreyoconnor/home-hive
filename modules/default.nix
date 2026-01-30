@@ -22,6 +22,5 @@ with lib; {
     ./teku
     ./ufo-k8s
     ./virt-host.nix
-    sway-gnome.nixosModules.default
   ];
 }

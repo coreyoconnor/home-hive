@@ -5,8 +5,7 @@
   nixpkgs-unstable,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.developer-base;
 in {
   config = mkIf cfg.enable {
@@ -15,4 +14,3 @@ in {
     };
   };
 }
-

@@ -14,7 +14,7 @@ with lib; {
       initrd = {
         availableKernelModules = ["xhci_pci" "nvme" "usb_storage" "sd_mod" "aesni_intel" "cryptd"];
       };
-      kernelModules = ["kvm-intel" "i915" ];
+      kernelModules = ["kvm-intel" "i915"];
     };
 
     # i915 is not compatible with RT

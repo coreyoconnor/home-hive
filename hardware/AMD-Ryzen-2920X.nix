@@ -6,7 +6,7 @@
   ...
 }:
 with lib; {
-  imports = [ inputs.ucodenix.nixosModules.default ];
+  imports = [inputs.ucodenix.nixosModules.default];
 
   config = {
     nix = {
@@ -18,7 +18,7 @@ with lib; {
 
     boot = {
       kernelModules = ["kvm-amd"];
-      kernelParams = [ "microcode.amd_sha_check=off" ];
+      kernelParams = ["microcode.amd_sha_check=off"];
     };
 
     hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

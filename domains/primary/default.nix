@@ -9,6 +9,8 @@ with lib; {
     ./users
   ];
   config = {
-    users.groups.plugdev = {};
+    users.groups.plugdev = {
+      gid = 10001;
+    };
   };
 }

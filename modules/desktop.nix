@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  sway-gnome,
   ...
 }:
 with lib; let
@@ -23,6 +24,7 @@ in {
   imports = [
     ../hardware/desktop-devices.nix
     ./desktop
+    sway-gnome.nixosModules.default
   ];
 
   config = mkIf cfg.enable {
@@ -30,13 +32,16 @@ in {
 
     boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_12.override {
       structuredExtraConfig = with lib.kernel; {
-          PREEMPT = lib.mkForce yes;
-          PREEMPT_RT = if cfg.rt then yes else no;
-          PREEMPT_COUNT = yes;
-          CONFIG_MK8 = yes;
-          CONFIG_GENERIC_CPU = unset;
-          CONFIG_X86_INTEL_USERCOPY = yes;
-          CONFIG_X86_USE_PPRO_CHECKSUM = yes;
+        PREEMPT = lib.mkForce yes;
+        PREEMPT_RT =
+          if cfg.rt
+          then yes
+          else no;
+        PREEMPT_COUNT = yes;
+        CONFIG_MK8 = yes;
+        CONFIG_GENERIC_CPU = unset;
+        CONFIG_X86_INTEL_USERCOPY = yes;
+        CONFIG_X86_USE_PPRO_CHECKSUM = yes;
       };
       ignoreConfigErrors = true;
     });
@@ -65,9 +70,6 @@ in {
       pavucontrol
       qt6Packages.qtwayland
       slurp # screenshot functionality
-      sway
-      swayidle
-      swaylock
       swww # wallpaper
       vulkan-tools
       waybar
@@ -151,7 +153,10 @@ in {
 
     # google drive support in nautilus etc..
     services.gvfs = {
-      package = pkgs.gvfs.override { gnomeSupport = true; googleSupport = true; };
+      package = pkgs.gvfs.override {
+        gnomeSupport = true;
+        googleSupport = true;
+      };
     };
     nixpkgs.config.permittedInsecurePackages = [
       "libsoup-2.74.3"
