@@ -293,11 +293,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1769746706,
-        "narHash": "sha256-3qrHR9UQ46rfPvAcRJt+lk5+rqgxjFs7Vx4Id8a0Va4=",
+        "lastModified": 1769792842,
+        "narHash": "sha256-1v3vDmwe41AAuYzm6ci2sniqTZEMncr4oZMp2JITaFo=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "aae04de2e90b963a93598e18841e1dedbd9cdd85",
+        "rev": "56e35af9ec3e3d125ff3259b374cb6b5e8ea4b72",
         "type": "github"
       },
       "original": {
@@ -488,11 +488,11 @@
         "waybar": "waybar"
       },
       "locked": {
-        "lastModified": 1769747118,
-        "narHash": "sha256-cwHZdWY8FmPGQjBa19SFcv/CMES+lKxDN/gwAMwtA20=",
+        "lastModified": 1769793222,
+        "narHash": "sha256-mdYIHt0/2zvIVv4riHtPakN7JEkFcdqa/YCiTBDonhg=",
         "owner": "coreyoconnor",
         "repo": "sway-gnome",
-        "rev": "f316f52b2d82122caeeb82e273f54890323c06c6",
+        "rev": "6697b4859aa912bb6ede15cc1c906dacc9626936",
         "type": "github"
       },
       "original": {
@@ -691,11 +691,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1769734871,
-        "narHash": "sha256-5hjwX24b4JM+Z6M6uBO+YV2M5Otx4rK7YCTKh8cm7Ak=",
+        "lastModified": 1769784264,
+        "narHash": "sha256-37vOw6evWRs7csNaPU7MRBNjgRPse3USsmYPqraOKgM=",
         "owner": "peteonrails",
         "repo": "voxtype",
-        "rev": "b48ca25d09470f186f77d2a7e66bd4ea86ab8878",
+        "rev": "f47c6d6f6c681d279c67ba0dac59d0b558f44717",
         "type": "github"
       },
       "original": {
