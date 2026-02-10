@@ -6,6 +6,7 @@
 }: {
   services.samba = {
     enable = true;
+    package = pkgs.samba4Full;
     openFirewall = true;
     settings = {
       global = {
@@ -25,5 +26,20 @@
         "guest only" = "yes";
       };
     };
+  };
+
+  services.samba-wsdd = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  environment.etc = {
+    "systemd/dnssd/smb.dnssd".source = pkgs.writeText "smb.dnssd" ''
+      [Service]
+      Name=%H
+      Type=_smb._tcp
+      Port=445
+      TxtText=model=MacPro
+    '';
   };
 }

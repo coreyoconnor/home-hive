@@ -11,7 +11,7 @@ with lib; {
       domains = ["local"];
       llmnr = "false";
       extraConfig = ''
-        MulticaseDNS=yes
+        MulticastDNS=yes
       '';
     };
 
