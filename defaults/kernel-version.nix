@@ -6,6 +6,9 @@
 }:
 with lib; {
   config = {
-    boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_6_17;
+    boot = {
+      kernelPackages = lib.mkDefault pkgs.linuxPackages_6_18;
+      zfs.package = pkgs.zfs_unstable;
+    };
   };
 }

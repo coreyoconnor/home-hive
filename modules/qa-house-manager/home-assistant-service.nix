@@ -26,7 +26,7 @@ with lib; let
 in {
   enable = true;
 
-  lovelaceConfig = import ./lovelace-config.nix;
+  # lovelaceConfig = import ./lovelace-config.nix;
 
   config = {
     "automation ui" = "!include automations.yaml";
