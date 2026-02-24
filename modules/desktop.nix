@@ -3,10 +3,12 @@
   pkgs,
   lib,
   sway-gnome,
+  nixpkgs-unstable,
   ...
 }:
 with lib; let
   cfg = config.desktop;
+  nixpkgs-unstable-pkgs = nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in {
   options = {
     desktop = {
@@ -17,6 +19,10 @@ in {
       rt = mkOption {
         type = types.bool;
         default = true;
+      };
+      use-unstable-mesa = mkOption {
+        type = types.bool;
+        default = false;
       };
     };
   };
@@ -42,6 +48,9 @@ in {
         CONFIG_GENERIC_CPU = unset;
         CONFIG_X86_INTEL_USERCOPY = yes;
         CONFIG_X86_USE_PPRO_CHECKSUM = yes;
+
+        # wine gaming perf
+        CONFIG_NTSYNC = yes;
       };
       ignoreConfigErrors = true;
     });
@@ -85,7 +94,10 @@ in {
     hardware = {
       graphics = {
         enable = true;
-      };
+      } // (mkIf cfg.use-unstable-mesa {
+        package = nixpkgs-unstable-pkgs.mesa;
+        package32 = nixpkgs-unstable-pkgs.pkgsi686Linux.mesa;
+      });
     };
 
     sway-gnome.enable = true;
@@ -137,10 +149,14 @@ in {
       };
 
       xfs.enable = false;
+
+      udev.extraRules = ''
+        KERNEL=="ntsync", MODE="0644"
+      '';
     };
 
     systemd.user.extraConfig = ''
-      DefaultEnvironment="PATH=/run/current-system/sw/bin"
+      DefaultEnvironment="PATH=/run/current-system/sw/bin" _winesync=true
     '';
 
     time.timeZone = null;

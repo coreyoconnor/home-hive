@@ -20,7 +20,10 @@ with lib; {
     networking.hostName = "glowness";
     system.stateVersion = "22.11";
 
-    desktop.enable = true;
+    desktop = {
+      enable = true;
+      use-unstable-mesa = true;
+    };
     developer-base.enable = true;
 
     environment.systemPackages = with pkgs; [

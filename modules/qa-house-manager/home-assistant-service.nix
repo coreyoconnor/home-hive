@@ -23,6 +23,44 @@ with lib; let
 
     patches = [./kleenex_pollenradar.diff];
   };
+  magicattr = pkgs.home-assistant.python.pkgs.buildPythonPackage rec {
+    pname = "magicattr";
+    version = "0.1.6";
+    format = "wheel";
+
+    src = pkgs.home-assistant.python.pkgs.fetchPypi {
+      inherit pname version format;
+      hash = "sha256-2WsY7kW17oOwnBfhXTRZpk3mLVOICML3EYJ3fdnbu98=";
+    };
+  };
+
+  gehomesdk-latest = pkgs.home-assistant.python.pkgs.gehomesdk.overrideDerivation (old: rec {
+    version = "2026.2.0";
+
+    src = pkgs.home-assistant.python.pkgs.fetchPypi {
+      inherit (old) pname;
+      version = "2026.2.0";
+      hash = "sha256-+BWGkUDKd+9QGbdXuLjmJxLm1xUv0dpIRlPlDkUJ25w=";
+    };
+  });
+
+  ha_gehome = pkgs.buildHomeAssistantComponent {
+    owner = "simbaja";
+    domain = "ge_home";
+    version = "v2026.2.0";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "simbaja";
+      repo = "ha_gehome";
+      rev = "60d82fb816806867dbcdb05579f56049d371dcf1";
+      hash = "sha256-7c2GfTagNsIsSiT/sCqSV+BZZJMcvlsecDD+ZDZx9BA=";
+    };
+
+    propagatedBuildInputs = with pkgs.home-assistant.python.pkgs; [
+      gehomesdk-latest
+      magicattr
+    ];
+  };
 in {
   enable = true;
 
@@ -121,6 +159,7 @@ in {
 
   customComponents = [
     kleenex_pollenradar
+    ha_gehome
   ];
 
   customLovelaceModules = with pkgs.home-assistant-custom-lovelace-modules; [
