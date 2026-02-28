@@ -7,6 +7,7 @@
 }:
 with lib; let
   cfg = config.ufo-k8s;
+  ip = "192.168.88.4";
 in {
   imports = [
     nix-kube-modules.nixosModules.helm
@@ -21,26 +22,27 @@ in {
     };
   };
 
+  # https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/networking/cluster/k3s/docs/USAGE.md
   config = mkIf cfg.enable {
     environment = {
       etc = {
         "rancher/k3s/registries.yaml".source = pkgs.writeText "rancher-k3s-registeries.yaml" ''
           mirrors:
-            "ufo.local:5000":
+            "ufo:5000":
               endpoint:
-                - "http://ufo.local:5000"
+                - "http://${ip}:5000"
         '';
       };
 
       systemPackages = with pkgs; [k3s];
     };
     networking.firewall.allowedTCPPorts = [443 6443 10250];
-    virtualisation.containers.registries.insecure = ["ufo.local:5000"];
+    virtualisation.containers.registries.insecure = ["ufo:5000"];
     services.dockerRegistry = {
       enable = true;
       enableDelete = true;
       enableGarbageCollect = true;
-      listenAddress = "192.168.88.4";
+      listenAddress = ip;
       openFirewall = true;
     };
     services.k3s = {

@@ -814,11 +814,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1771505304,
-        "narHash": "sha256-1tHjXjdo435Gvxmv6DdsDLe1cKqgZAm0kABbWMEYVb8=",
+        "lastModified": 1771799058,
+        "narHash": "sha256-NsuqqJnTaj7CQT3SmsnbNnoc9axXm/tyBm4yrcDGmAE=",
         "owner": "peteonrails",
         "repo": "voxtype",
-        "rev": "ab88c93fe051dfed1d24d323f6ea72efd10eded2",
+        "rev": "a7bde400235084a6a73ca623d43dd44f9564297d",
         "type": "github"
       },
       "original": {

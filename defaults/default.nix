@@ -43,7 +43,7 @@ with lib; rec {
       enableRedistributableFirmware = lib.mkDefault true;
     };
 
-    i18n.defaultLocale = "en_US.UTF-8";
+    i18n.defaultLocale = "en_US.utf8";
 
     time.timeZone = lib.mkDefault "UTC";
 
