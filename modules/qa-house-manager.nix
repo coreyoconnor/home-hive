@@ -83,5 +83,20 @@ in {
     services.matter-server.enable = true;
 
     services.whisper-tts-and-stt.enable = true;
+
+    users.users.hass = {
+      subUidRanges = [
+        {
+          startUid = 2200000;
+          count = 65536;
+        }
+      ];
+      subGidRanges = [
+        {
+          startGid = 2200000;
+          count = 65536;
+        }
+      ];
+    };
   };
 }

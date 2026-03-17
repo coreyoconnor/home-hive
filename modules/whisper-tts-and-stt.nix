@@ -17,13 +17,12 @@ with lib; {
     virtualisation.oci-containers.containers = {
       whisper-stt = {
         image = "rhasspy/wyoming-whisper:3.1.0";
-        cmd = [ "--model" "tiny-int8" "--language" "en" ];
+        cmd = [ "--compute-type" "int8" "--model" "tiny-int8" "--language" "en" ];
         ports = [ "10300:10300" ];
         autoStart = true;
-        #user = "286:286";
-        #volumes = [
-        #  "/mnt/storage/hass/whisper-stt:/data"
-        #];
+        volumes = [
+          "/mnt/storage/hass/whisper-stt:/data"
+        ];
         serviceName = "whisper-stt";
         log-driver = "passthrough";
       };
@@ -33,8 +32,8 @@ with lib; {
         image = "rhasspy/wyoming-piper:2.2.2";
         cmd = [ "--voice" "en_US-lessac-medium" ];
         ports = [ "10200:10200" ];
-        autoStart = true;
         user = "286:286";
+        autoStart = true;
         volumes = [
           "/mnt/storage/hass/whisper-tts:/data"
         ];
