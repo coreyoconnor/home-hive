@@ -9,6 +9,10 @@ with lib; {
     boot = {
       kernelPackages = lib.mkDefault pkgs.linuxPackages_6_18;
       zfs.package = pkgs.zfs_unstable;
+      # kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_18.override {
+      #   structuredExtraConfig = with lib.kernel; {
+      #   };
+      # };
     };
   };
 }

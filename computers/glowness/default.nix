@@ -62,6 +62,18 @@ with lib; {
       enable = true;
       gamescopeSession.enable = true;
       remotePlay.openFirewall = true;
+      package = pkgs.steam.override {
+        extraEnv = {
+          MANGOHUD = "1";
+          MANGOHUD_CONFIG = "no_display";
+          GAMEMODERUN = "1";
+          AMD_VULKAN_ICD = "RADV";
+          PROTON_LOCAL_SHADER_CACHE = "1";
+          MESA_SHADER_CACHE_MAX_SIZE = "16G";
+          WINE_VK_VULKAN_ONLY = "1";
+          WINEDLLOVERRIDES = "dinput8,dxgi,dsound=n,b";
+        };
+      };
     };
 
     # boot.initrd.systemd.tpm2.enable = false;

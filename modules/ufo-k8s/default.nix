@@ -38,6 +38,7 @@ in {
     };
     networking.firewall.allowedTCPPorts = [443 6443 10250];
     virtualisation.containers.registries.insecure = ["ufo:5000"];
+    networking.nftables.enable = false;
     services.dockerRegistry = {
       enable = true;
       enableDelete = true;
@@ -48,6 +49,7 @@ in {
     services.k3s = {
       enable = true;
       role = "server";
+      extraFlags = ["--node-ip ${ip}"];
     };
     system.k3s.helm = {
       enable = false;

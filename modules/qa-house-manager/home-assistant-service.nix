@@ -8,20 +8,18 @@ with lib; let
   kleenex_pollenradar = pkgs.buildHomeAssistantComponent {
     owner = "MarcoGos";
     domain = "kleenex_pollenradar";
-    version = "1.4.4";
+    version = "1.5.3";
 
     src = pkgs.fetchFromGitHub {
       owner = "MarcoGos";
       repo = "kleenex_pollenradar";
-      rev = "2aebd549f81da345efa22927046517d36c38c39a";
-      hash = "sha256-4yasiZUj7Nexqu5NAsjkDvbjkMlDffjcBmpltQ/Xu9U=";
+      rev = "d07d0c809071f9782c48ae92089687bffb1bcfb1";
+      hash = "sha256-8b3wW49CGvOwLE2U0MZcoj3PINHhDDgjK2wYdTdifSw=";
     };
 
     propagatedBuildInputs = with pkgs.home-assistant.python.pkgs; [
       beautifulsoup4
     ];
-
-    patches = [./kleenex_pollenradar.diff];
   };
   magicattr = pkgs.home-assistant.python.pkgs.buildPythonPackage rec {
     pname = "magicattr";

@@ -8,6 +8,6 @@ with lib; let
   cfg = config.desktop;
 in {
   config = mkIf cfg.enable {
-    i8n.supportedLocales = [ "all" ];
+    i18n.supportedLocales = [ "all" ];
   };
 }

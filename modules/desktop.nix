@@ -34,9 +34,12 @@ in {
   ];
 
   config = mkIf cfg.enable {
+    # waydroid
+    networking.nftables.enable = true;
+
     semi-active-av.enable = true;
 
-    boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_18.override {
+    boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_12.override {
       structuredExtraConfig = with lib.kernel; {
         PREEMPT = lib.mkForce yes;
         PREEMPT_RT =
@@ -50,7 +53,7 @@ in {
         CONFIG_X86_USE_PPRO_CHECKSUM = yes;
 
         # wine gaming perf
-        CONFIG_NTSYNC = yes;
+        # CONFIG_NTSYNC = yes;
       };
       ignoreConfigErrors = true;
     });

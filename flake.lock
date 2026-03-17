@@ -578,11 +578,11 @@
         "waybar": "waybar"
       },
       "locked": {
-        "lastModified": 1770001081,
-        "narHash": "sha256-T+Q3P50ZoaXVq6a/f95Epqti371z1t5cYi84uF0X4Ew=",
+        "lastModified": 1772913564,
+        "narHash": "sha256-xDXT3wixX2wiAk2DqVyXeHU7ixEdKVAHyiBryQJtDLk=",
         "owner": "coreyoconnor",
         "repo": "sway-gnome",
-        "rev": "27fc390d690cfd90575e001476a920bec35f11b2",
+        "rev": "ae9cd94123510f2791e507a6f732afe16b1a43f4",
         "type": "github"
       },
       "original": {
@@ -814,11 +814,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1771799058,
-        "narHash": "sha256-NsuqqJnTaj7CQT3SmsnbNnoc9axXm/tyBm4yrcDGmAE=",
+        "lastModified": 1772443545,
+        "narHash": "sha256-oD3lameQXilKcgxQORR2l0+iDbnCO61+mjYD3MEVbuQ=",
         "owner": "peteonrails",
         "repo": "voxtype",
-        "rev": "a7bde400235084a6a73ca623d43dd44f9564297d",
+        "rev": "d011f3ff074a6a14c14e75fefb375a408e9e8887",
         "type": "github"
       },
       "original": {

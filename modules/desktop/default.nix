@@ -10,5 +10,6 @@ in {
   imports = [
     ./speech-to-text.nix
     ./input-methods.nix
+    ./locales.nix
   ];
 }

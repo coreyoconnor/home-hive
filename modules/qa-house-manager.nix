@@ -22,6 +22,7 @@ in {
 
   imports = [
     ./ring-mqtt.nix
+    ./whisper-tts-and-stt.nix
     "${nixpkgs-unstable}/nixos/modules/services/home-automation/home-assistant.nix"
   ];
 
@@ -80,5 +81,7 @@ in {
     systemd.services.postgresql.serviceConfig.TimeoutSec = lib.mkOverride 10 666;
 
     services.matter-server.enable = true;
+
+    services.whisper-tts-and-stt.enable = true;
   };
 }

@@ -335,6 +335,7 @@
   "wled"
   "worldclock"
   "wsdot"
+  "wyoming"
   "zeroconf"
   "zone"
 ]
