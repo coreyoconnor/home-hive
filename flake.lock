@@ -260,11 +260,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1769638819,
-        "narHash": "sha256-S1auQrJTHUOjv1kJZkDWXi1kKVcUHYC2DK9sdEVdtJo=",
+        "lastModified": 1773931013,
+        "narHash": "sha256-7o8g1N8bngv+HYZdweQ2fhX/NLzctMdRF++juTAgcJI=",
         "owner": "flameshot-org",
         "repo": "flameshot",
-        "rev": "bcf076673e482b05db48a3241e5a8c7890e217d4",
+        "rev": "f9ea95435728b99473dfa9431f4d532590a7ecff",
         "type": "github"
       },
       "original": {
@@ -551,11 +551,11 @@
         "systems": "systems_7"
       },
       "locked": {
-        "lastModified": 1768403764,
-        "narHash": "sha256-1RVLChp1WUcjnDu30jG2DTXW0A6K3lkezEip3KTf/gE=",
+        "lastModified": 1771859266,
+        "narHash": "sha256-sUd6r/2cZ4slc6HB151LnEaf7b7g4bbYB36ADoYk564=",
         "owner": "wlrfx",
         "repo": "scenefx",
-        "rev": "05a5e7a9177de04bc398e25821c0898c2a284c9f",
+        "rev": "bb223e3e94b4576f514df96d03ff0680384a4e20",
         "type": "github"
       },
       "original": {
@@ -578,11 +578,11 @@
         "waybar": "waybar"
       },
       "locked": {
-        "lastModified": 1772913564,
-        "narHash": "sha256-xDXT3wixX2wiAk2DqVyXeHU7ixEdKVAHyiBryQJtDLk=",
+        "lastModified": 1773986640,
+        "narHash": "sha256-jxpPgydECc1VHBz1r2+r5p5eBt1q0YVtxInGsAGlIrY=",
         "owner": "coreyoconnor",
         "repo": "sway-gnome",
-        "rev": "ae9cd94123510f2791e507a6f732afe16b1a43f4",
+        "rev": "2c231f39c82bc0605f5bdf416d2ab52c55fa71b9",
         "type": "github"
       },
       "original": {
@@ -603,11 +603,11 @@
         "systems": "systems_8"
       },
       "locked": {
-        "lastModified": 1769467630,
-        "narHash": "sha256-SufN5nd0+BojwTpe2tPuFIXswpLGo4syG/OwBF2Glzs=",
+        "lastModified": 1772835103,
+        "narHash": "sha256-4A4DEMDxJgPbbszLVdnlhFsvQS73X91dANZN0wbrX6g=",
         "owner": "WillPower3309",
         "repo": "swayfx",
-        "rev": "c4ce2331c90120fafc12ba86200591255e836caf",
+        "rev": "434d992494da97e46071618f56a527656d23161a",
         "type": "github"
       },
       "original": {
@@ -837,11 +837,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769374781,
-        "narHash": "sha256-ZJ3reEJ8TQaNEfPiEl1uLlktTTogpsQ1DyQhjfOCQTA=",
+        "lastModified": 1773910498,
+        "narHash": "sha256-JwXYw4phtJ/PljzxX46NQROcaUqoloBlXOZ7PxFoYsg=",
         "owner": "Alexays",
         "repo": "Waybar",
-        "rev": "2f9443501403a11e5d7e28ab05801debabefa2a8",
+        "rev": "6cb68737e64a851797a26566c7859b53eb2fd8bc",
         "type": "github"
       },
       "original": {
