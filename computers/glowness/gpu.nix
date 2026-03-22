@@ -12,7 +12,7 @@ with lib; {
   config = {
     boot = {
       # kernelParams = ["amdgpu.mcbp=0" "amd_iommu=off"];
-      kernelParams = ["amd_pstate=guided" "amdgpu"];
+      kernelParams = ["amd_pstate=performance" "amdgpu"];
       kernelModules = ["amdgpu"];
     };
 
@@ -39,5 +39,9 @@ with lib; {
       settings.general.inhibit_screensaver = 0;
       enableRenice = true;
     };
+
+    environment.systemPackages = with pkgs; [
+      nvtopPackages.amd
+    ];
   };
 }
