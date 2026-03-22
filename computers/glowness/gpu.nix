@@ -12,7 +12,7 @@ with lib; {
   config = {
     boot = {
       # kernelParams = ["amdgpu.mcbp=0" "amd_iommu=off"];
-      kernelParams = ["amd_pstate=performance" "amdgpu"];
+      kernelParams = ["amd_pstate=performance" "amd_iommu=off"];
       kernelModules = ["amdgpu"];
     };
 

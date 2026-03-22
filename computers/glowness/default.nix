@@ -30,6 +30,7 @@ with lib; {
       chiaki
       piper
       valent
+      mangohud
     ];
 
     hardware.bluetooth = {
@@ -64,8 +65,6 @@ with lib; {
       remotePlay.openFirewall = true;
       package = pkgs.steam.override {
         extraEnv = {
-          MANGOHUD = "1";
-          MANGOHUD_CONFIG = "no_display";
           GAMEMODERUN = "1";
           AMD_VULKAN_ICD = "RADV";
           PROTON_LOCAL_SHADER_CACHE = "1";
