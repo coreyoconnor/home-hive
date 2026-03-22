@@ -103,7 +103,10 @@ in {
       });
     };
 
-    sway-gnome.enable = true;
+    sway-gnome = {
+      enable = true;
+      package = nixpkgs-unstable-pkgs.sway-unwrapped;
+    };
 
     security.rtkit.enable = true;
 
