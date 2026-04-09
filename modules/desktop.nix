@@ -39,7 +39,7 @@ in {
 
     semi-active-av.enable = true;
 
-    boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_12.override {
+    boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_18.override {
       structuredExtraConfig = with lib.kernel; {
         PREEMPT = lib.mkForce yes;
         PREEMPT_RT =
@@ -53,16 +53,15 @@ in {
         CONFIG_X86_USE_PPRO_CHECKSUM = yes;
 
         # wine gaming perf
-        # CONFIG_NTSYNC = yes;
+        CONFIG_NTSYNC = yes;
       };
       ignoreConfigErrors = true;
     });
 
     environment.systemPackages = with pkgs; [
-      android-translation-layer
+      # android-translation-layer
       appimage-run
       brightnessctl
-      dracula-theme # gtk theme
       firefox
       foot
       fuzzel # launcher
@@ -110,6 +109,7 @@ in {
 
     security.rtkit.enable = true;
 
+
     services = {
       automatic-timezoned.enable = true;
 
@@ -146,6 +146,7 @@ in {
       sysprof.enable = true;
 
       xserver.enable = true; # for xwayland
+      xserver.desktopManager.budgie.enable = true;
 
       displayManager.gdm = {
         enable = true;

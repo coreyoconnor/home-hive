@@ -14,6 +14,7 @@ with lib; {
     ./filesystems.nix
     ./memory.nix
     ./gpu.nix
+    ./boot-banner.nix
   ];
 
   config = {
