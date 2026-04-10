@@ -15,6 +15,7 @@ with lib; {
     ./memory.nix
     ./gpu.nix
     ./boot-banner.nix
+    ./gaming.nix
   ];
 
   config = {
@@ -28,22 +29,9 @@ with lib; {
     developer-base.enable = true;
 
     environment.systemPackages = with pkgs; [
-      chiaki
-      piper
       valent
-      mangohud
     ];
-
-    hardware.bluetooth = {
-      enable = true;
-      settings = {
-        General = {
-          JustWorksRepairing = "confirm";
-        };
-      };
-    };
     hardware.spacenavd.enable = true;
-    hardware.xpadneo.enable = true;
 
     networking.firewall = {
       enable = false;
@@ -55,26 +43,8 @@ with lib; {
       '';
     };
 
-    powerManagement.cpuFreqGovernor = "performance";
-
     programs.adb.enable = true;
     users.users.coconnor.extraGroups = ["adbusers"];
-
-    programs.steam = {
-      enable = true;
-      gamescopeSession.enable = true;
-      remotePlay.openFirewall = true;
-      package = pkgs.steam.override {
-        extraEnv = {
-          GAMEMODERUN = "1";
-          AMD_VULKAN_ICD = "RADV";
-          PROTON_LOCAL_SHADER_CACHE = "1";
-          MESA_SHADER_CACHE_MAX_SIZE = "16G";
-          WINE_VK_VULKAN_ONLY = "1";
-          WINEDLLOVERRIDES = "dinput8,dxgi,dsound=n,b";
-        };
-      };
-    };
 
     # boot.initrd.systemd.tpm2.enable = false;
     security.tpm2.enable = true;
