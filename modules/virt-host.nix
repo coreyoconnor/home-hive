@@ -32,9 +32,10 @@ with lib; let
       Delegate = "cpu cpuset io memory pids";
     };
 
-    environment.systemPackages = with pkgs; [
-      slirp4netns
-    ];
+    services.resolved.extraConfig = ''
+      [Resolve]
+      DNSStubListenerExtra=10.88.0.1
+    '';
   };
 
   libvirtHost = {

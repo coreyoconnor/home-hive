@@ -6,6 +6,6 @@
 }:
 with lib; {
   config = {
-    # networking.nftables.enable = true;
+    networking.nftables.enable = true;
   };
 }

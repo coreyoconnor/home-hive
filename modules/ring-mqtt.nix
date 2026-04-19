@@ -25,6 +25,7 @@ with lib; {
         ];
         serviceName = "ring-mqtt";
         log-driver = "passthrough";
+        extraOptions = [ "--network=host" ];
       };
     };
 

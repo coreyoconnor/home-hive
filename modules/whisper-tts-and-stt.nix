@@ -25,6 +25,7 @@ with lib; {
         ];
         serviceName = "whisper-stt";
         log-driver = "passthrough";
+        extraOptions = [ "--network=host" ];
       };
 
       # https://github.com/rhasspy/wyoming-piper
@@ -39,6 +40,7 @@ with lib; {
         ];
         serviceName = "whisper-tts";
         log-driver = "passthrough";
+        extraOptions = [ "--network=host" ];
       };
     };
 

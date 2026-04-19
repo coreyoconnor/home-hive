@@ -47,5 +47,27 @@ with lib; {
       dnssec = "true";
       dnsovertls = "true";
     };
+
+    networking.nftables = {
+      ruleset = ''
+        table inet filter {
+          chain input {
+            type filter hook input priority 0; policy accept;
+
+            # Block any local process from receiving on port 8080
+            tcp dport 2269 drop
+            udp dport 2269 drop
+          }
+
+          chain output {
+            type filter hook output priority 0; policy accept;
+          }
+
+          chain forward {
+            type filter hook forward priority 0; policy drop;
+          }
+        }
+      '';
+    };
   };
 }
