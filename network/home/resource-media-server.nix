@@ -16,6 +16,7 @@
         "guest account" = "media";
         "map to guest" = "bad user";
         "security" = "auto";
+        "preferred master" = "no";
       };
       media = {
         "path" = "/mnt/storage/media";

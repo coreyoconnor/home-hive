@@ -21,6 +21,7 @@ with lib; let
       beautifulsoup4
     ];
   };
+
   magicattr = pkgs.home-assistant.python.pkgs.buildPythonPackage rec {
     pname = "magicattr";
     version = "0.1.6";
@@ -166,6 +167,9 @@ in {
     mini-graph-card
     lg-webos-remote-control
     mushroom
+    apexcharts-card
+    material-you-utilities
+    zigbee2mqtt-networkmap
   ];
 
   extraPackages = ps:

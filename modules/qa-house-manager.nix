@@ -85,6 +85,7 @@ in {
     services.whisper-tts-and-stt.enable = true;
 
     users.users.hass = {
+      linger = true;
       subUidRanges = [
         {
           startUid = 2200000;

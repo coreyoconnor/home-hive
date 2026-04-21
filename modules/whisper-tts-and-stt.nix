@@ -25,7 +25,7 @@ with lib; {
         ];
         serviceName = "whisper-stt";
         log-driver = "passthrough";
-        extraOptions = [ "--network=host" ];
+        podman.user = "hass";
       };
 
       # https://github.com/rhasspy/wyoming-piper
@@ -33,14 +33,13 @@ with lib; {
         image = "rhasspy/wyoming-piper:2.2.2";
         cmd = [ "--voice" "en_US-lessac-medium" ];
         ports = [ "10200:10200" ];
-        user = "286:286";
         autoStart = true;
         volumes = [
           "/mnt/storage/hass/whisper-tts:/data"
         ];
         serviceName = "whisper-tts";
         log-driver = "passthrough";
-        extraOptions = [ "--network=host" ];
+        podman.user = "hass";
       };
     };
 
