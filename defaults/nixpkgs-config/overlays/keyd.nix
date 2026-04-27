@@ -1,11 +1,11 @@
 self: super: {
   keyd = super.keyd.overrideAttrs (oldAttrs: {
-    src = assert (self.lib.versionOlder oldAttrs.version "2.5.1");
+    src = assert (self.lib.versionOlder oldAttrs.version "2.6.0");
       self.fetchFromGitHub {
         owner = "rvaiya";
         repo = "keyd";
-        rev = "f010d00d8469b90d59911086166e66dceb2dd70f";
-        hash = "sha256-d9S67Byj/aWIT1I3eOReMblO9mmchpt6rCFA7LaVddo=";
+        rev = "7c0aecb8bfd34dc8642bf4eefd2e59c89e61cec3";
+        hash = "sha256-l7yjGpicX1ly4UwF7gcOTaaHPRnxVUMwZkH70NDLL5M=";
       };
   });
 }

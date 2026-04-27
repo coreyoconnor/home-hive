@@ -86,6 +86,14 @@ in {
 
     users.users.hass = {
       linger = true;
+      createHome = true;
+      useDefaultShell = true;
+      home = "/var/lib/hass";
+      extraGroups = [
+        "libvirtd"
+        "users"
+        "podman"
+      ];
       subUidRanges = [
         {
           startUid = 2200000;
@@ -99,5 +107,10 @@ in {
         }
       ];
     };
+
+    # USB bluetooth device reset
+    services.udev.extraRules = ''
+      SUBSYSTEMS=="usb", ATTRS{idVendor}=="2357", ATTRS{idProduct}=="0604", GROUP="users", MODE="0666"
+    '';
   };
 }

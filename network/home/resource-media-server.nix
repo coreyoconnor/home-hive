@@ -16,7 +16,10 @@
         "guest account" = "media";
         "map to guest" = "bad user";
         "security" = "auto";
+        "domain master" = "no";
+        "local master" = "no";
         "preferred master" = "no";
+        "interfaces" = "enp179s0";
       };
       media = {
         "path" = "/mnt/storage/media";

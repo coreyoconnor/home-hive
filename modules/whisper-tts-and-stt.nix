@@ -18,7 +18,7 @@ with lib; {
       whisper-stt = {
         image = "rhasspy/wyoming-whisper:3.1.0";
         cmd = [ "--compute-type" "int8" "--model" "tiny-int8" "--language" "en" ];
-        ports = [ "10300:10300" ];
+        extraOptions = [ "--network=host" ];
         autoStart = true;
         volumes = [
           "/mnt/storage/hass/whisper-stt:/data"
@@ -32,7 +32,7 @@ with lib; {
       whisper-tts = {
         image = "rhasspy/wyoming-piper:2.2.2";
         cmd = [ "--voice" "en_US-lessac-medium" ];
-        ports = [ "10200:10200" ];
+        extraOptions = [ "--network=host" ];
         autoStart = true;
         volumes = [
           "/mnt/storage/hass/whisper-tts:/data"

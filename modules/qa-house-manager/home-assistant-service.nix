@@ -60,6 +60,21 @@ with lib; let
       magicattr
     ];
   };
+
+  lovelace-horizon-card =  pkgs.stdenv.mkDerivation rec {
+    pname = "lovelace-horizon-card";
+    version = "1.4.0";
+
+    src = pkgs.fetchurl {
+      url = "https://github.com/rejuvenate/lovelace-horizon-card/releases/download/v${version}/${pname}.js";
+      hash = "sha256-kdtSFDQYP4y3KZ340Q+22XeUrv14+TvHG8QuCf5vFOI=";
+    };
+
+    builder = pkgs.writeShellScript "builder.sh" ''
+      mkdir -p $out/
+      cp $src $out/lovelace-hnorizon-card.js
+    '';
+  };
 in {
   enable = true;
 
@@ -170,6 +185,7 @@ in {
     apexcharts-card
     material-you-utilities
     zigbee2mqtt-networkmap
+    lovelace-horizon-card
   ];
 
   extraPackages = ps:

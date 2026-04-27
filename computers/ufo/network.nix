@@ -25,7 +25,6 @@ with lib; {
     services.nix-serve = {
       listenSockets = [
         "192.168.88.4:4999"
-        "192.168.88.7:4999"
       ];
     };
 
@@ -68,6 +67,23 @@ with lib; {
           }
         }
       '';
+    };
+
+    systemd.network.networks = {
+      "50-eno1" = {
+        matchConfig.Name = "eno1";
+        linkConfig.RequiredForOnline = "no";
+      };
+      "50-eno2" = {
+        matchConfig.Name = "eno2";
+        networkConfig = {
+          DHCP = "yes";
+        };
+        linkConfig = {
+          RequiredForOnline = "no";
+          MultiCastDNS = "no";
+        };
+      };
     };
   };
 }

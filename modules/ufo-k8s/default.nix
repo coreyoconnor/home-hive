@@ -38,13 +38,15 @@ in {
     };
     networking.firewall.allowedTCPPorts = [443 6443 10250];
     virtualisation.containers.registries.insecure = ["ufo:5000"];
-    networking.nftables.enable = false;
     services.dockerRegistry = {
       enable = true;
       enableDelete = true;
       enableGarbageCollect = true;
       listenAddress = ip;
       openFirewall = true;
+    };
+    systemd.services.docker-registry = {
+      serviceConfig.Environment = "OTEL_TRACES_EXPORTER=none";
     };
     services.k3s = {
       enable = true;

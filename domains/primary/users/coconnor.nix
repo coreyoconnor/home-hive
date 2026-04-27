@@ -14,11 +14,11 @@ with pkgs.lib; {
       extraGroups = [
         "audio"
         "dialout"
-        "docker"
         "jupyter"
         "libvirtd"
         "monkey"
         "plugdev"
+        "podman"
         "systemd-journal"
         "transmission"
         "tty"
