@@ -61,6 +61,7 @@ in {
     environment.systemPackages = with pkgs; [
       # android-translation-layer
       appimage-run
+      brave
       brightnessctl
       firefox
       foot

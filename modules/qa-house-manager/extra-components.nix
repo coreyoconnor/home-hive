@@ -246,6 +246,7 @@
   "rest_command"
   "ring"
   "rflink"
+  "roborock"
   "scene"
   "schedule"
   "scrape"

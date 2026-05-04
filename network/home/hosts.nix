@@ -17,7 +17,7 @@ in {
     networking = {
       extraHosts = ''
         192.168.88.4 ufo
-        192.168.88.7 ufo-alt
+        192.168.88.7 ufo-iot
         192.168.88.18 glowness
         192.168.88.23 deny
         192.168.88.30 thrash

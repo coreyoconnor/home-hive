@@ -95,6 +95,10 @@ in {
 
     ffmpeg = {};
 
+    http = {
+      server_host = "192.168.88.4";
+    };
+
     homeassistant = {
       allowlist_external_dirs = [
         "/tmp"
