@@ -88,7 +88,7 @@ in {
     services.whisper-tts-and-stt.enable = true;
 
     users.users.hass = {
-      linger = true;
+      linger = false;
       createHome = true;
       useDefaultShell = true;
       home = "/var/lib/hass";
