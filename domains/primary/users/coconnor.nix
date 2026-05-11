@@ -14,7 +14,9 @@ with pkgs.lib; {
       extraGroups = [
         "audio"
         "dialout"
+        "input"
         "jupyter"
+        "keyd"
         "libvirtd"
         "monkey"
         "plugdev"
