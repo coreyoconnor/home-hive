@@ -72,7 +72,6 @@ in {
       gnomeExtensions.appindicator
       grim # screjnshot functionality
       keybase-gui
-      keyd # key remapping
       helvum
       ispell
       mako # notification system developed by swaywm maintainer
@@ -188,6 +187,5 @@ in {
 
     users.groups.plugdev = { };
     users.groups.uinput = { };
-    users.groups.keyd = { };
   };
 }

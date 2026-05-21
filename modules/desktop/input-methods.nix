@@ -9,19 +9,16 @@ with lib; let
 in {
   config = mkIf cfg.enable {
     services = {
-      keyd = {
+      kanata = {
         enable = true;
         keyboards = {
-          default = {
-            ids = ["*"];
-            settings = {
-              main = {
-                capslock = "layer(capslock)";
-              };
+          default.config = ''
+            (defsrc)
 
-              "capslock:C" = {};
-            };
-          };
+            (deflayermap (base-layer)
+              caps lctl
+            )
+          '';
         };
       };
     };
