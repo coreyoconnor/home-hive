@@ -21,12 +21,13 @@ in {
     environment.systemPackages = with pkgs; [
       autoconf
       automake
+      bash-language-server
       bloop
-      buildah
       clang
       cloudflared # for cloudflare tunnel ssh connections
       conmon
       coursier
+      file
       git
       jdk
       keybase
@@ -34,10 +35,12 @@ in {
       kubernetes-helm
       libsecret # for secret-tool
       lua-language-server
+      lua
+      luarocks
       sbt
       scala-cli
+      tree-sitter
       zig
-      nixpkgs-unstable-pkgs.gemini-cli
     ];
 
     nixpkgs.config = {
