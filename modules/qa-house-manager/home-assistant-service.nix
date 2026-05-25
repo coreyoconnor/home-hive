@@ -72,7 +72,7 @@ with lib; let
 
     builder = pkgs.writeShellScript "builder.sh" ''
       mkdir -p $out/
-      cp $src $out/lovelace-hnorizon-card.js
+      cp $src $out/lovelace-horizon-card.js
     '';
   };
 in {
