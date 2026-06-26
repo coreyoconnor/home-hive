@@ -36,7 +36,7 @@ in {
 
       systemPackages = with pkgs; [k3s];
     };
-    networking.firewall.allowedTCPPorts = [443 6443 10250];
+    networking.firewall.allowedTCPPorts = [80 443 6443 10250];
     virtualisation.containers.registries.insecure = ["ufo:5000"];
     services.dockerRegistry = {
       enable = true;

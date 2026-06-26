@@ -72,7 +72,6 @@ in {
       gnomeExtensions.appindicator
       grim # screjnshot functionality
       keybase-gui
-      helvum
       ispell
       mako # notification system developed by swaywm maintainer
       neovim-qt
@@ -81,7 +80,7 @@ in {
       pavucontrol
       qt6Packages.qtwayland
       slurp # screenshot functionality
-      swww # wallpaper
+      awww # wallpaper
       vulkan-tools
       waybar
       wayland
@@ -146,14 +145,6 @@ in {
       sysprof.enable = true;
 
       xserver.enable = true; # for xwayland
-      xserver.desktopManager.budgie.enable = true;
-
-      displayManager.gdm = {
-        enable = true;
-        debug = true;
-        autoSuspend = false;
-        wayland = true;
-      };
 
       xfs.enable = false;
 
@@ -173,17 +164,6 @@ in {
     xdg.portal = {
       enable = true;
     };
-
-    # google drive support in nautilus etc..
-    services.gvfs = {
-      package = pkgs.gvfs.override {
-        gnomeSupport = true;
-        googleSupport = true;
-      };
-    };
-    nixpkgs.config.permittedInsecurePackages = [
-      "libsoup-2.74.3"
-    ];
 
     users.groups.plugdev = { };
     users.groups.uinput = { };

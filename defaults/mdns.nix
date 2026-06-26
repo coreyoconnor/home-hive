@@ -8,15 +8,15 @@ with lib; {
   config = {
     services.resolved = {
       enable = true;
-      domains = ["local"];
-      llmnr = "false";
-      extraConfig = ''
-        MulticastDNS=yes
-      '';
+      settings.Resolve = {
+        MulticastDNS = true;
+        LMNR = true;
+        Domains = [ "local" ];
+      };
     };
 
     networking.firewall = {
-      allowedUDPPorts = [5353];
+      allowedUDPPorts = [ 5353 ];
     };
 
     services.avahi.enable = false;

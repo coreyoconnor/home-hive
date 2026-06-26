@@ -5,6 +5,8 @@
   ...
 }: {
   config = {
+    boot.zfs.forceImportRoot = false;
+
     fileSystems."/" = {
       device = "rpool/root";
       fsType = "zfs";

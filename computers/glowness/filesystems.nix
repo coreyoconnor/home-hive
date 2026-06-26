@@ -20,7 +20,10 @@ with lib; {
 
       supportedFilesystems = ["zfs"];
 
-      zfs.requestEncryptionCredentials = true;
+      zfs = {
+        requestEncryptionCredentials = true;
+        forceImportRoot = false;
+      };
       plymouth.enable = false;
     };
 

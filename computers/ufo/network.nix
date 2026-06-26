@@ -11,11 +11,13 @@ with lib; {
     ../../network/home/resource-user-share-server.nix
   ];
   config = {
+
     networking = {
       hostId = "abab4ab2";
       hostName = "ufo";
-      useDHCP = true;
-      enableIPv6 = false;
+      useDHCP = false;
+      useNetworkd = true;
+      defaultGateway.interface = "192.168.88.1";
     };
 
     services.kubo.settings = {
@@ -43,8 +45,10 @@ with lib; {
     };
 
     services.resolved = {
-      dnssec = "true";
-      dnsovertls = "true";
+      settings.Resolve = {
+        DNSSEC = true;
+        DNSOverTLS = true;
+      };
     };
 
     networking.nftables = {
@@ -69,19 +73,22 @@ with lib; {
       '';
     };
 
-    systemd.network.networks = {
-      "50-eno1" = {
-        matchConfig.Name = "eno1";
-        linkConfig.RequiredForOnline = "no";
-      };
-      "50-eno2" = {
-        matchConfig.Name = "eno2";
-        networkConfig = {
-          DHCP = "yes";
+    systemd.network = {
+      enable = true;
+
+      networks = {
+        "50-eno1" = {
+          matchConfig.Name = "eno1";
+          linkConfig.RequiredForOnline = "no";
         };
-        linkConfig = {
-          RequiredForOnline = "no";
-          MultiCastDNS = "no";
+        "50-eno2" = {
+          matchConfig.Name = "eno2";
+          networkConfig = {
+            DHCP = "yes";
+          };
+          linkConfig = {
+            RequiredForOnline = "no";
+          };
         };
       };
     };

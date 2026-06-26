@@ -32,10 +32,9 @@ with lib; let
       Delegate = "cpu cpuset io memory pids";
     };
 
-    services.resolved.extraConfig = ''
-      [Resolve]
-      DNSStubListenerExtra=10.88.0.1
-    '';
+    # services.resolved.settings.Resolve = {
+    #   DNSStubListenerExtra = '10.88.0.1';
+    # };
   };
 
   libvirtHost = {

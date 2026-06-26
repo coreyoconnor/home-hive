@@ -12,8 +12,7 @@ with lib; {
   config = {
     boot = {
       # kernelParams = ["amdgpu.mcbp=0" "amd_iommu=off"];
-      kernelParams = ["amd_pstate=performance" "amd_iommu=off"];
-      kernelModules = ["amdgpu"];
+      kernelParams = ["amd_iommu=off"];
     };
 
     hardware.graphics = {
@@ -22,17 +21,31 @@ with lib; {
       extraPackages = with pkgs; [
         libva-vdpau-driver
         libvdpau-va-gl
+        rocmPackages.clr.icd
       ];
     };
+
+    nixpkgs.config.rocmSupport = true;
 
     hardware.amdgpu = {
       opencl.enable = true;
       initrd.enable = true;
     };
 
-    systemd.tmpfiles.rules = [
-      "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
-    ];
+    systemd.tmpfiles.rules =
+      let
+        rocmEnv = pkgs.symlinkJoin {
+          name = "rocm-combined";
+          paths = with pkgs.rocmPackages; [
+            rocblas
+            hipblas
+            clr
+          ];
+        };
+      in
+      [
+        "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
+      ];
 
     programs.gamemode = {
       enable = true;

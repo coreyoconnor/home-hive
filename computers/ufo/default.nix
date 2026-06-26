@@ -12,6 +12,7 @@ with lib; {
     ./filesystems.nix
     ./memory.nix
     ./network.nix
+    ./llm-server.nix
     nixos-hardware.nixosModules.supermicro
     nixos-hardware.nixosModules.common-cpu-intel
   ];

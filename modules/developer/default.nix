@@ -66,6 +66,12 @@ in {
         item = "nofile";
         value = "1048576";
       }
+      {
+        domain = "*";
+        type = "hard";
+        item = "memlock";
+        value = "57628376064";
+      }
     ];
   };
 }

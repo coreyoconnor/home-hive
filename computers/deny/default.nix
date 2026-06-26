@@ -27,15 +27,21 @@ with lib; {
 
     boot = {
       initrd = {
-        preLVMCommands = let
+        systemd.services.banner = let
           banner = pkgs.runCommand "gen-banner" {} ''
             mkdir $out
             ${pkgs.figlet}/bin/figlet -f doh UFO > $out/banner.txt
             ${pkgs.figlet}/bin/figlet -f broadway DENY >> $out/banner.txt
           '';
-        in ''
-          cat ${banner}/banner.txt
-        '';
+        in {
+          wantedBy = [ "initrd.target" ];
+          serviceConfig = {
+            type = "oneshot";
+            script = ''
+              cat ${banner}/banner.txt
+            '';
+          };
+        };
       };
     };
 
@@ -43,7 +49,7 @@ with lib; {
     developer-base.enable = true;
 
     environment.systemPackages = with pkgs; [
-      networkmanagerapplet
+      android-tools
     ];
 
     hardware.bluetooth = {
@@ -58,7 +64,6 @@ with lib; {
     networking.firewall.enable = true;
     networking.enableIPv6 = true;
 
-    programs.adb.enable = true;
     users.users.coconnor.extraGroups = ["adbusers"];
 
     programs.captive-browser = {

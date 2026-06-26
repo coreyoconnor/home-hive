@@ -8,7 +8,6 @@ with lib; {
   imports = [
     ../../hardware/Gigabyte-X399-Aorus-Pro.nix
     ../../hardware/AMD-Ryzen-2920X.nix
-    ../../network/home/host-glowness.nix
     ../../domains/primary
     ./audio.nix
     ./filesystems.nix
@@ -16,6 +15,7 @@ with lib; {
     ./gpu.nix
     ./boot-banner.nix
     ./gaming.nix
+    ./network.nix
   ];
 
   config = {
@@ -30,12 +30,9 @@ with lib; {
 
     environment.systemPackages = with pkgs; [
       valent
+      android-tools
     ];
     hardware.spacenavd.enable = true;
-
-    networking.firewall = {
-      enable = false;
-    };
 
     nix = {
       extraOptions = ''
@@ -43,7 +40,8 @@ with lib; {
       '';
     };
 
-    programs.adb.enable = true;
+    programs.fuse.enable = true;
+
     users.users.coconnor.extraGroups = ["adbusers"];
 
     # boot.initrd.systemd.tpm2.enable = false;
@@ -51,6 +49,7 @@ with lib; {
 
     services.foreign-binary-emulation.enable = true;
     services.kbfs.enable = true;
+    services.kmscon.enable = false;
 
     virt-host.enable = true;
 
