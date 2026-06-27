@@ -14,16 +14,9 @@ in {
   config = {
     boot = {
       initrd = {
-
-        systemd = {
-          storePaths = [ banner ];
-          services.banner = {
-            wantedBy = [ "initrd.target" ];
-            serviceConfig = {
-              Type = "oneshot";
-              ExecStart = "cat ${banner}/banner.txt";
-            };
-          };
+        boot-banner = {
+          enable = true;
+          inherit banner;
         };
       };
     };
