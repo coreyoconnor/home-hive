@@ -3,8 +3,8 @@ self: super: {
     src = self.fetchFromGitHub {
       owner = "libratbag";
       repo = "libratbag";
-      rev = "874c01732a7d3c074baefd8055c0d3efe8c9a935";
-      hash = "sha256-O9DxwAieUEy+otwDSM2412vCCQJkHIrDOPVYevg0l44=";
+      rev = "2fb9a701e8c02bbe261eb141ff311a379837c63d";
+      hash = "sha256-c4nAVhI3m9VeGy+rZLPS8Z98RS9JbrHe/mdiuee5y4s=";
     };
   });
 }

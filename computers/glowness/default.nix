@@ -31,6 +31,7 @@ with lib; {
     environment.systemPackages = with pkgs; [
       valent
       android-tools
+      goldendict-ng
     ];
     hardware.spacenavd.enable = true;
 
