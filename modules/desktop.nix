@@ -39,9 +39,8 @@ in {
 
     semi-active-av.enable = true;
 
-    boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_18.override {
+    boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_7_0.override {
       structuredExtraConfig = with lib.kernel; {
-        PREEMPT = lib.mkForce yes;
         PREEMPT_RT =
           if cfg.rt
           then yes
