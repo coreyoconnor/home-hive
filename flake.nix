@@ -23,7 +23,7 @@
       };
     };
     sway-gnome = {
-      url = "github:coreyoconnor/sway-gnome/dev";
+      url = "github:coreyoconnor/sway-gnome/main";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         nixpkgs-unstable.follows = "nixpkgs-unstable";
