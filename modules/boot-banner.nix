@@ -33,6 +33,7 @@ in {
             serviceConfig = {
               Type = "oneshot";
               ExecStart = "/bin/cat ${cfg.banner}/banner.txt";
+              StandardOutput = "journal+console";
             };
           };
         };

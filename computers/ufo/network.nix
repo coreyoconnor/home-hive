@@ -15,7 +15,7 @@ with lib; {
     networking = {
       hostId = "abab4ab2";
       hostName = "ufo";
-      useDHCP = false;
+      useDHCP = true;
       useNetworkd = true;
       defaultGateway.interface = "192.168.88.1";
     };
@@ -88,6 +88,15 @@ with lib; {
           };
           linkConfig = {
             RequiredForOnline = "no";
+          };
+        };
+        "50-enp179s0" = {
+          matchConfig.Name = "enp179s0";
+          networkConfig = {
+            DHCP = "yes";
+          };
+          linkConfig = {
+            RequiredForOnline = "yes";
           };
         };
       };

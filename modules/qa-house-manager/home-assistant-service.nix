@@ -17,45 +17,45 @@ with lib; let
       hash = "sha256-8b3wW49CGvOwLE2U0MZcoj3PINHhDDgjK2wYdTdifSw=";
     };
 
-    propagatedBuildInputs = with pkgs.home-assistant.python.pkgs; [
+    propagatedBuildInputs = with pkgs.home-assistant.python3Packages; [
       beautifulsoup4
     ];
   };
 
-  magicattr = pkgs.home-assistant.python.pkgs.buildPythonPackage rec {
+  magicattr = pkgs.home-assistant.python3Packages.buildPythonPackage rec {
     pname = "magicattr";
     version = "0.1.6";
     format = "wheel";
 
-    src = pkgs.home-assistant.python.pkgs.fetchPypi {
+    src = pkgs.home-assistant.python3Packages.fetchPypi {
       inherit pname version format;
       hash = "sha256-2WsY7kW17oOwnBfhXTRZpk3mLVOICML3EYJ3fdnbu98=";
     };
   };
 
-  gehomesdk-latest = pkgs.home-assistant.python.pkgs.gehomesdk.overrideDerivation (old: rec {
-    version = "2026.2.0";
+  gehomesdk-latest = pkgs.home-assistant.python3Packages.gehomesdk.overrideDerivation (old: rec {
+    version = "2026.5.4";
 
-    src = pkgs.home-assistant.python.pkgs.fetchPypi {
+    src = pkgs.home-assistant.python3Packages.fetchPypi {
       inherit (old) pname;
-      version = "2026.2.0";
-      hash = "sha256-+BWGkUDKd+9QGbdXuLjmJxLm1xUv0dpIRlPlDkUJ25w=";
+      version = "2026.5.4";
+      hash = "sha256-zKYe7vIXSFbtTqaCLEAHQvuDRGGXqorqfFqVVpBWuJs=";
     };
   });
 
   ha_gehome = pkgs.buildHomeAssistantComponent {
     owner = "simbaja";
     domain = "ge_home";
-    version = "v2026.2.0";
+    version = "v2026.5.0-dev0";
 
     src = pkgs.fetchFromGitHub {
       owner = "simbaja";
       repo = "ha_gehome";
-      rev = "60d82fb816806867dbcdb05579f56049d371dcf1";
-      hash = "sha256-7c2GfTagNsIsSiT/sCqSV+BZZJMcvlsecDD+ZDZx9BA=";
+      rev = "28f21bccc6a0294fd74e96a5cb0d45db73b1abc1";
+      hash = "sha256-CAeyypIncGM8DHl0Fn2TkeQpg4uVUjqOqcP1EGVUg7M=";
     };
 
-    propagatedBuildInputs = with pkgs.home-assistant.python.pkgs; [
+    propagatedBuildInputs = with pkgs.home-assistant.python3Packages; [
       gehomesdk-latest
       magicattr
     ];

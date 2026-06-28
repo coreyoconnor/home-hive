@@ -10,7 +10,7 @@ with lib; {
       enable = true;
       settings.Resolve = {
         MulticastDNS = true;
-        LMNR = true;
+        LLMNR = true;
         Domains = [ "local" ];
       };
     };

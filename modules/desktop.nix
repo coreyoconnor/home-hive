@@ -62,7 +62,6 @@ in {
       appimage-run
       brave
       brightnessctl
-      firefox
       foot
       fuzzel # launcher
       evince
@@ -100,13 +99,19 @@ in {
       });
     };
 
+    programs = {
+      firefox = {
+        enable = true;
+        package = pkgs.firefox;
+      };
+    };
+
     sway-gnome = {
       enable = true;
       package = nixpkgs-unstable-pkgs.sway-unwrapped;
     };
 
     security.rtkit.enable = true;
-
 
     services = {
       automatic-timezoned.enable = true;

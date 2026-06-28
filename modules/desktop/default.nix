@@ -11,5 +11,6 @@ in {
     ./speech-to-text.nix
     ./input-methods.nix
     ./locales.nix
+    ./progressive-web-apps.nix
   ];
 }

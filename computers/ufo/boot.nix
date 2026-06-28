@@ -27,7 +27,9 @@
 
           ssh = {
             enable = true;
-            authorizedKeys = [(builtins.readFile ../../domains/primary/users/ssh/coconnor.pub)];
+            authorizedKeys = let
+                key = builtins.readFile ../../domains/primary/users/ssh/coconnor.pub;
+              in [ ''command="systemctl default" ${key}'' ];
             hostKeys = [
               "/etc/secrets/initrd/ssh_host_ed25519_key"
             ];
