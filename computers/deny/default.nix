@@ -7,6 +7,7 @@
 with lib; {
   imports = [
     ../../hardware/lenovo-thinkpad-x1-7th-gen.nix
+    ./boot-banner.nix
     ./filesystems.nix
     ./memory.nix
     ./power-management.nix
@@ -23,26 +24,6 @@ with lib; {
         192.168.88.23 deny
       '';
       hostName = "deny";
-    };
-
-    boot = {
-      initrd = {
-        systemd.services.banner = let
-          banner = pkgs.runCommand "gen-banner" {} ''
-            mkdir $out
-            ${pkgs.figlet}/bin/figlet -f doh UFO > $out/banner.txt
-            ${pkgs.figlet}/bin/figlet -f broadway DENY >> $out/banner.txt
-          '';
-        in {
-          wantedBy = [ "initrd.target" ];
-          serviceConfig = {
-            type = "oneshot";
-            script = ''
-              cat ${banner}/banner.txt
-            '';
-          };
-        };
-      };
     };
 
     desktop.enable = true;
@@ -74,6 +55,13 @@ with lib; {
     programs.steam = {
       enable = true;
       remotePlay.openFirewall = true;
+    };
+
+    nix = {
+      settings = {
+        cores = 2;
+        max-jobs = 2;
+      };
     };
 
     services.foreign-binary-emulation.enable = true;
