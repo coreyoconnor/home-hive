@@ -102,7 +102,7 @@ in {
     programs = {
       firefox = {
         enable = true;
-        package = pkgs.firefox;
+        package = nixpkgs-unstable-pkgs.firefox;
       };
     };
 
