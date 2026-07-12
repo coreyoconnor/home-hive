@@ -3,12 +3,10 @@
   pkgs,
   lib,
   sway-gnome,
-  nixpkgs-unstable,
   ...
 }:
 with lib; let
   cfg = config.desktop;
-  nixpkgs-unstable-pkgs = nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in {
   options = {
     desktop = {
@@ -94,21 +92,21 @@ in {
       graphics = {
         enable = true;
       } // (mkIf cfg.use-unstable-mesa {
-        package = nixpkgs-unstable-pkgs.mesa;
-        package32 = nixpkgs-unstable-pkgs.pkgsi686Linux.mesa;
+        package = config.nixpkgs-unstable.pkgs.mesa;
+        package32 = config.nixpkgs-unstable.pkgs.pkgsi686Linux.mesa;
       });
     };
 
     programs = {
       firefox = {
         enable = true;
-        package = nixpkgs-unstable-pkgs.firefox;
+        package = config.nixpkgs-unstable.pkgs.firefox;
       };
     };
 
     sway-gnome = {
       enable = true;
-      package = nixpkgs-unstable-pkgs.sway-unwrapped;
+      package = config.nixpkgs-unstable.pkgs.sway-unwrapped;
     };
 
     security.rtkit.enable = true;

@@ -6,7 +6,7 @@
   ...
 }:
 with lib; let
-  nvim-unstable = nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.neovim;
+  nvim-unstable = config.nixpkgs-unstable.pkgs.neovim;
 in {
   config = {
     # task accounting

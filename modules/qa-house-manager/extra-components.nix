@@ -176,7 +176,6 @@
   "locative"
   "lock"
   "logbook"
-  "logentries"
   "logger"
   "lookin"
   "lovelace"

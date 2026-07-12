@@ -1,12 +1,11 @@
 {
   config,
   pkgs,
-  nixpkgs-unstable,
   lib,
   ...
 }:
 with lib; let
-  nixpkgs-unstable-pkgs = nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+  nixpkgs-unstable-pkgs = config.nixpkgs-unstable.pkgs;
   cfg = config.desktop;
 in {
   imports = [

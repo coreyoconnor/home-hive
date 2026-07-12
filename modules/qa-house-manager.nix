@@ -6,7 +6,7 @@
   ...
 }:
 with lib; let
-  nixpkgs-unstable-pkgs = nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+  nixpkgs-unstable-pkgs = config.nixpkgs-unstable.pkgs;
 in {
   options.services.qa-house-manager = {
     enable = mkOption {

@@ -8,6 +8,7 @@ with lib; rec {
   imports = [
     ./default-services.nix
     ./nixpkgs-config.nix
+    ./nixpkgs-unstable-config.nix
     ./fonts.nix
     ./kernel-version.nix
     ./network.nix
