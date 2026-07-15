@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:coreyoconnor/nixpkgs/main";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/master";
+    nixpkgs-unstable.url = "github:coreyoconnor/nixpkgs/unstable";
 
     nix_configs = {
       # I use `dev` branch but you should use `main`
