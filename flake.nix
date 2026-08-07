@@ -49,10 +49,23 @@
   outputs = {
     self,
     nix_configs,
+    nixpkgs,
     ...
   } @ inputs:
-    nix_configs.lib.mkFlake inputs {
-      systems = {
+    with nixpkgs.lib;
+    let postpi-hosts = listToAttrs (map (id:
+      {
+        name = "postpi-${id}";
+        value = {
+          name = "postpi-${id}-image";
+          system = "aarch64-linux";
+          configPath = "${self}/computers/postpi-n.nix";
+          imageBuild = true;
+        };
+      }
+    ) (map toString (lists.range 0 6)));
+    in nix_configs.lib.mkFlake inputs {
+      systems = (postpi-hosts // {
         deny = {system = "x86_64-linux";};
         glowness = {system = "x86_64-linux";};
         retronix-vm = {system = "x86_64-linux";};
@@ -65,13 +78,7 @@
           configPath = "${self}/installer";
           imageBuild = true;
         };
-        postpi-0 = {
-          name = "postpi-0-image";
-          system = "aarch64-linux";
-          configPath = "${self}/computers/postpi-0.nix";
-          imageBuild = true;
-        };
-      };
+      });
 
       devFlakes = {
         nixos-hardware = {

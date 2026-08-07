@@ -10,7 +10,6 @@ with lib; rec {
     ./nixpkgs-config.nix
     ./nixpkgs-unstable-config.nix
     ./fonts.nix
-    ./kernel-version.nix
     ./network.nix
     ./standard-admin.nix
     ./standard-nix.nix

@@ -9,13 +9,17 @@ with lib; {
 
   config = {
     networking = {
-      interfaces = {
-        eno1.useDHCP = true;
-        enp2s0.useDHCP = true;
-        wlp4s0.useDHCP = true;
-      };
+      useDHCP = true;
+      wireless = {
+        enable = true;
+        networks = {
+          KittyMeowMeow = {
+            psk = "ext:psk_kittymeowmeow";
+          };
+        };
 
-      wireless.enable = true;
+        secretsFile = "/etc/wpa_supplicant-secrets.conf";
+      };
     };
   };
 }

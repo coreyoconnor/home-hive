@@ -3,17 +3,19 @@
   pkgs,
   nixpkgs,
   lib,
+  nixos-hardware,
   ...
 }: {
   imports = [
     "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+    nixos-hardware.nixosModules.raspberry-pi-3
     ../../network/home
     ../../domains/primary
   ];
 
   config = {
-    boot.kernelPackages = pkgs.linuxKernel.packages.linux_rpi3;
     hardware.enableRedistributableFirmware = true;
+    home-hive.useDefaultKernel = false;
 
     boot.kernel.sysctl = {
       "vm.swappiness" = 120;
@@ -23,20 +25,5 @@
     };
 
     zramSwap.enable = true;
-
-    nixpkgs.overlays = [
-      (self: super: {
-        makeModulesClosure = x: super.makeModulesClosure (x // {allowMissing = true;});
-
-        zfs = super.zfs.overrideAttrs (finalAttrs: previousAttrs: {
-          meta =
-            previousAttrs.meta
-            // {
-              platforms = [];
-              broken = true;
-            };
-        });
-      })
-    ];
   };
 }

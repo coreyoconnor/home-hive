@@ -26,7 +26,7 @@ with lib; {
     services.foreign-binary-emulation.enable = true;
 
     services.fail2ban = {
-      # enable = true;
+      enable = true;
 
       bantime-increment = {
         enable = true;

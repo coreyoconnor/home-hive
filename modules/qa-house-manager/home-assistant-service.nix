@@ -8,13 +8,13 @@ with lib; let
   kleenex_pollenradar = pkgs.buildHomeAssistantComponent {
     owner = "MarcoGos";
     domain = "kleenex_pollenradar";
-    version = "1.5.3";
+    version = "1.6.4";
 
     src = pkgs.fetchFromGitHub {
       owner = "MarcoGos";
       repo = "kleenex_pollenradar";
-      rev = "d07d0c809071f9782c48ae92089687bffb1bcfb1";
-      hash = "sha256-8b3wW49CGvOwLE2U0MZcoj3PINHhDDgjK2wYdTdifSw=";
+      rev = "d802309e532e2dcf193da744f88636e4d86c5990";
+      hash = "sha256-uLjjP3QNE61VGw/5hhKpfDz2Q+lDhzlebTundpcNqfY=";
     };
 
     propagatedBuildInputs = with pkgs.home-assistant.python3Packages; [
@@ -34,25 +34,25 @@ with lib; let
   };
 
   gehomesdk-latest = pkgs.home-assistant.python3Packages.gehomesdk.overrideDerivation (old: rec {
-    version = "2026.5.4";
+    version = "2026.8.0";
 
     src = pkgs.home-assistant.python3Packages.fetchPypi {
       inherit (old) pname;
-      version = "2026.5.4";
-      hash = "sha256-zKYe7vIXSFbtTqaCLEAHQvuDRGGXqorqfFqVVpBWuJs=";
+      version = "2026.8.0";
+      hash = "sha256-4WGkodI608LmlHpzYfPIrexZBNAsImmj2B55+WJgq2E=";
     };
   });
 
   ha_gehome = pkgs.buildHomeAssistantComponent {
     owner = "simbaja";
     domain = "ge_home";
-    version = "v2026.5.0-dev0";
+    version = "v2026.8.0-dev0";
 
     src = pkgs.fetchFromGitHub {
       owner = "simbaja";
       repo = "ha_gehome";
-      rev = "28f21bccc6a0294fd74e96a5cb0d45db73b1abc1";
-      hash = "sha256-CAeyypIncGM8DHl0Fn2TkeQpg4uVUjqOqcP1EGVUg7M=";
+      rev = "470471ad29eafaaa29f6041cf17090f5ea2dcbff";
+      hash = "sha256-XU6w42gfZR0OfYDF/pYjrUfzufOYGwsX1s5oAMKk39I=";
     };
 
     propagatedBuildInputs = with pkgs.home-assistant.python3Packages; [
@@ -63,11 +63,11 @@ with lib; let
 
   lovelace-horizon-card =  pkgs.stdenv.mkDerivation rec {
     pname = "lovelace-horizon-card";
-    version = "1.4.0";
+    version = "1.5.3";
 
     src = pkgs.fetchurl {
       url = "https://github.com/rejuvenate/lovelace-horizon-card/releases/download/v${version}/${pname}.js";
-      hash = "sha256-kdtSFDQYP4y3KZ340Q+22XeUrv14+TvHG8QuCf5vFOI=";
+      hash = "sha256-dl9qDVzIfl6lVhAQr/EVWtYuUxhmZT9QkmBfLOk0VDM=";
     };
 
     builder = pkgs.writeShellScript "builder.sh" ''
@@ -171,7 +171,7 @@ in {
     zeroconf = {};
   };
 
-  extraComponents = import ./extra-components.nix {inherit config lib pkgs;};
+  extraComponents = import ./enabled-components.nix;
 
   openFirewall = true;
 

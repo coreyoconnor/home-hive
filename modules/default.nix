@@ -11,6 +11,7 @@ with lib; {
     ./atmo-monitor.nix
     ./besu
     ./boot-banner.nix
+    ./default-kernel.nix
     ./desktop.nix
     ./developer-base.nix
     ./foreign-binary-emulation.nix

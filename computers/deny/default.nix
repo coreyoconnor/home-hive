@@ -18,11 +18,6 @@ with lib; {
     system.stateVersion = "23.05";
 
     networking = {
-      extraHosts = ''
-        192.168.88.4 ufo
-        192.168.88.18 glowness
-        192.168.88.23 deny
-      '';
       hostName = "deny";
     };
 

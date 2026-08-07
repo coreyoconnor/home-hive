@@ -124,7 +124,7 @@ in {
       };
 
       kubo = {
-        enable = true;
+        enable = false;
       };
 
       libinput.enable = mkDefault true;
