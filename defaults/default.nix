@@ -48,5 +48,8 @@ with lib; rec {
     time.timeZone = lib.mkDefault "UTC";
 
     services.journald.console = "/dev/tty12";
+
+    # https://github.com/NixOS/nixpkgs/issues/549440
+    boot.kernelModules = [ "ext4" ];
   };
 }

@@ -61,6 +61,19 @@ with lib; let
     ];
   };
 
+  petlibro = pkgs.buildHomeAssistantComponent {
+    owner = "jjjonesjr33";
+    domain = "petlibro";
+    version = "v1.2.32";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "jjjonesjr33";
+      repo = "petlibro";
+      rev = "e307919794b01173294939e7b9772fa04a1710d4";
+      hash = "sha256-TOkh1uJgpDX2SQjeKZISU/t2e5tOW2wDUaDc+AESxRg=";
+    };
+  };
+
   lovelace-horizon-card =  pkgs.stdenv.mkDerivation rec {
     pname = "lovelace-horizon-card";
     version = "1.5.3";
@@ -178,6 +191,7 @@ in {
   customComponents = [
     kleenex_pollenradar
     ha_gehome
+    petlibro
   ];
 
   customLovelaceModules = with pkgs.home-assistant-custom-lovelace-modules; [

@@ -13,7 +13,7 @@ in {
 
   config = mkIf cfg.enable {
     environment.shellInit = ''
-      export JAVA_HOME=${pkgs.jdk}
+      export JAVA_HOME=${pkgs.jdk21}
     '';
 
     environment.systemPackages = with pkgs; [

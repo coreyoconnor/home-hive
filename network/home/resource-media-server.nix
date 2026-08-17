@@ -19,6 +19,7 @@
         "domain master" = "no";
         "local master" = "no";
         "preferred master" = "no";
+        "os level" = "0";
         "interfaces" = "enp179s0";
       };
       media = {
