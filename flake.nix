@@ -42,6 +42,16 @@
       inputs.cpu-microcodes.follows = "cpu-microcodes";
     };
 
+    microvm = {
+      url = "github:microvm-nix/microvm.nix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     # TODO: migrate from
     nix-kube-modules.url = "github:coreyoconnor/nix-kube-modules";
   };

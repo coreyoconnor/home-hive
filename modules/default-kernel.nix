@@ -13,7 +13,7 @@ with lib; {
   };
   config = mkIf config.home-hive.useDefaultKernel {
     boot = {
-      kernelPackages = lib.mkDefault pkgs.linuxPackages_7_0;
+      kernelPackages = lib.mkDefault pkgs.linuxPackages_7_2;
       zfs.package = pkgs.zfs_2_4;
     };
   };
