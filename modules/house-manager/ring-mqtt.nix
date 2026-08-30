@@ -5,19 +5,12 @@
   ...
 }:
 with lib; {
-  options.services.ring-mqtt = {
-    enable = mkOption {
-      default = false;
-      example = true;
-      type = with types; bool;
-    };
-  };
 
-  config = mkIf config.services.ring-mqtt.enable {
+  config = mkIf config.services.house-manager.enable {
     virtualisation.oci-containers.containers = {
       # https://github.com/tsightler/ring-mqtt-ha-addon/blob/main/config.yaml
       ring-mqtt = {
-        image = "tsightler/ring-mqtt:5.9.1";
+        image = "tsightler/ring-mqtt:5.9.3";
         autoStart = true;
         user = "286:286";
         volumes = [

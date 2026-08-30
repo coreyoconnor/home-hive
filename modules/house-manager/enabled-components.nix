@@ -348,5 +348,6 @@
   "wsdot"
   "wyoming"
   "zeroconf"
+  "zha"
   "zone"
 ]

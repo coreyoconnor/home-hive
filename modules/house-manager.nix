@@ -8,7 +8,7 @@
 with lib; let
   nixpkgs-unstable-pkgs = config.nixpkgs-unstable.pkgs;
 in {
-  options.services.qa-house-manager = {
+  options.services.house-manager = {
     enable = mkOption {
       default = false;
       example = true;
@@ -21,12 +21,14 @@ in {
   ];
 
   imports = [
-    ./ring-mqtt.nix
+    ./house-manager/ring-mqtt.nix
+    ./house-manager/openthread-border-router.nix
     ./whisper-tts-and-stt.nix
+    ./house-manager/openthread-border-router.nix
     "${nixpkgs-unstable}/nixos/modules/services/home-automation/home-assistant.nix"
   ];
 
-  config = mkIf config.services.qa-house-manager.enable {
+  config = mkIf config.services.house-manager.enable {
     services.mosquitto = {
       enable = true;
       listeners = [
@@ -38,7 +40,7 @@ in {
       ];
     };
 
-    services.home-assistant = import ./qa-house-manager/home-assistant-service.nix {
+    services.home-assistant = import ./house-manager/home-assistant-service.nix {
       inherit config lib;
       pkgs = nixpkgs-unstable-pkgs;
     };
@@ -78,8 +80,6 @@ in {
       ];
       package = pkgs.postgresql_14;
     };
-
-    services.ring-mqtt.enable = true;
 
     systemd.services.postgresql.serviceConfig.TimeoutSec = lib.mkOverride 10 666;
 

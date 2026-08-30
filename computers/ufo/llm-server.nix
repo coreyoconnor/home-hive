@@ -7,7 +7,7 @@
 with lib; {
   config = {
     services.ollama = {
-      enable = true;
+      enable = false;
       package = pkgs.ollama-cpu;
       openFirewall = true;
       host = "192.168.88.4";

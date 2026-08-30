@@ -44,11 +44,8 @@ with lib; {
       allowedTCPPorts = [4999 9191 9091];
     };
 
-    services.resolved = {
-      settings.Resolve = {
-        DNSSEC = true;
-        DNSOverTLS = true;
-      };
+    services.avahi = {
+      allowInterfaces = [ "enp179s0" ];
     };
 
     networking.nftables = {
@@ -68,6 +65,13 @@ with lib; {
 
           chain forward {
             type filter hook forward priority 0; policy drop;
+
+            # Allow established and related connections
+            ct state { established, related } accept
+
+            # Allow cross-interface forwarding for Thread / OTBR
+            iifname "wpan0" oifname "enp179s0" accept
+            iifname "enp179s0" oifname "wpan0" accept
           }
         }
       '';

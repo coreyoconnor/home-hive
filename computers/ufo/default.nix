@@ -40,7 +40,7 @@ with lib; {
       secretKeyFile = "/etc/nix/ufo-1.sec";
     };
 
-    services.qa-house-manager.enable = true;
+    services.house-manager.enable = true;
 
     nix = {
       extraOptions = ''

@@ -9,9 +9,12 @@ with lib; {
     services.resolved = {
       enable = true;
       settings.Resolve = {
-        MulticastDNS = true;
-        LLMNR = true;
-        Domains = [ "local" ];
+        DNSSEC = true;
+        DNSOverTLS = true;
+      };
+      settings.Resolve = {
+        MulticastDNS = "no";
+        LLMNR = "resolve";
       };
     };
 
@@ -19,6 +22,17 @@ with lib; {
       allowedUDPPorts = [ 5353 ];
     };
 
-    services.avahi.enable = false;
+    services.avahi = {
+      enable = true;
+      nssmdns4 = true;
+      nssmdns6 = true;
+      publish = {
+        enable = true;
+        addresses = true;
+        domain = true;
+        workstation = true;
+        userServices = true;
+      };
+    };
   };
 }

@@ -18,7 +18,7 @@ with lib; {
     ./hw-rand.nix
     ./media-presenter.nix
     ./mev-boost
-    ./qa-house-manager.nix
+    ./house-manager.nix
     ./semi-active-av.nix
     ./status-tty.nix
     ./teku
