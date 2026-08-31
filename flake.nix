@@ -3,7 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:coreyoconnor/nixpkgs/main";
-    nixpkgs-unstable.url = "github:coreyoconnor/nixpkgs/unstable";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/master";
+    # nixpkgs-unstable.url = "github:coreyoconnor/nixpkgs/unstable";
 
     nix_configs = {
       # I use `dev` branch but you should use `main`
@@ -92,29 +93,29 @@
 
       devFlakes = {
         nixos-hardware = {
-          url = "git@github.com:coreyoconnor/nixos-hardware";
+          remote = "git@github.com:coreyoconnor/nixos-hardware";
           branch = "dev";
-          prodUrl = "git@github.com:coreyoconnor/nixos-hardware";
+          prodRemote = "git@github.com:coreyoconnor/nixos-hardware";
           prodBranch = "main";
         };
         retronix = {
-          url = "git@github.com:coreyoconnor/retronix";
+          remote = "git@github.com:coreyoconnor/retronix";
           branch = "dev";
-          prodUrl = "git@github.com:coreyoconnor/retronix";
+          prodRemote = "git@github.com:coreyoconnor/retronix";
           prodBranch = "main";
         };
         sway-gnome = {
-          url = "git@github.com:coreyoconnor/sway-gnome";
+          remote = "git@github.com:coreyoconnor/sway-gnome";
           branch = "dev";
-          prodUrl = "git@github.com:coreyoconnor/sway-gnome";
+          prodRemote = "git@github.com:coreyoconnor/sway-gnome";
           prodBranch = "main";
         };
         nixpkgs = {
-          url = "git@github.com:coreyoconnor/nixpkgs";
+          remote = "git@github.com:coreyoconnor/nixpkgs";
           branch = "dev";
-          prodUrl = "git@github.com:coreyoconnor/nixpkgs";
+          prodRemote = "git@github.com:coreyoconnor/nixpkgs";
           prodBranch = "main";
-          upstreamUrl = "https://github.com/NixOS/nixpkgs.git";
+          upstreamRemote = "https://github.com/NixOS/nixpkgs.git";
           upstreamBranch = "nixos-26.05";
         };
       };

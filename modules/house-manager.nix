@@ -45,8 +45,8 @@ in {
       pkgs = nixpkgs-unstable-pkgs;
     };
 
-    # MQTT and postgresql
-    networking.firewall.allowedTCPPorts = [ 1883 5432 58867 ];
+    # MQTT, postgresql, home assistant
+    networking.firewall.allowedTCPPorts = [ 1883 5432 8123 58867 ];
     networking.firewall.allowedUDPPorts = [ 58866 ];
 
     nixpkgs = {

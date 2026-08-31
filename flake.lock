@@ -404,11 +404,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1782714860,
-        "narHash": "sha256-BnEqTraLa/ycIRgBOPbLx1rNKbNOw2TceGWc+M3FYTM=",
+        "lastModified": 1788135336,
+        "narHash": "sha256-hwC9/6XQVVX78SG4D1yc2NaWxtyLm/e8bE4VfXstk+g=",
         "owner": "coreyoconnor",
         "repo": "nix_configs",
-        "rev": "21d3e99e462ddb3ea0d2748eee228f6e2bb5694b",
+        "rev": "0da682ef71458b0b9b0ec723e58fc26ab30f31a8",
         "type": "github"
       },
       "original": {
@@ -465,16 +465,16 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1783958696,
-        "narHash": "sha256-AXRUc0Tpqt8RkAW+SyJKEyWJCtGD+7qDXM4f1EwfkNI=",
-        "owner": "coreyoconnor",
+        "lastModified": 1788125645,
+        "narHash": "sha256-gVytq0IwwtQMLet77aLYtJlAt1PcKODXD4LSAzivCis=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "58a9deca50eefd065053331b3fe9504ecd827d87",
+        "rev": "460184b1f254fe5a4fb014257235034930860084",
         "type": "github"
       },
       "original": {
-        "owner": "coreyoconnor",
-        "ref": "unstable",
+        "owner": "NixOS",
+        "ref": "master",
         "repo": "nixpkgs",
         "type": "github"
       }

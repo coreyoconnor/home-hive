@@ -186,8 +186,6 @@ in {
 
   extraComponents = import ./enabled-components.nix;
 
-  openFirewall = true;
-
   customComponents = [
     kleenex_pollenradar
     ha_gehome
