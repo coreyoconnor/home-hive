@@ -35,6 +35,9 @@ with lib; {
     };
 
     services.hw-rand.enable = false;
+
+    services.keybase.enable = true;
+
     services.nix-serve = {
       enable = true;
       secretKeyFile = "/etc/nix/ufo-1.sec";
