@@ -2,7 +2,6 @@
   config,
   pkgs,
   lib,
-  nix-kube-modules,
   ...
 }:
 with lib; let
@@ -10,7 +9,6 @@ with lib; let
   ip = "192.168.88.4";
 in {
   imports = [
-    nix-kube-modules.nixosModules.helm
   ];
 
   options = {
@@ -52,17 +50,6 @@ in {
       enable = true;
       role = "server";
       extraFlags = ["--node-ip ${ip}"];
-    };
-    system.k3s.helm = {
-      enable = false;
-      charts = {
-        #hub = {
-        #  namespace = "hub";
-        #  repo = "jupyterhub";
-        #  version = "";
-        #  values = import ./jupyterhub-config.nix;
-        #};
-      };
     };
   };
 }

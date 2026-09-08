@@ -38,23 +38,21 @@
       url = "github:platomav/CPUMicrocodes/ec5200961ecdf78cf00e55d73902683e835edefd";
       flake = false;
     };
+
     ucodenix = {
       url = "github:e-tho/ucodenix";
       inputs.cpu-microcodes.follows = "cpu-microcodes";
     };
 
-    microvm = {
-      url = "github:microvm-nix/microvm.nix";
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    llm-agents = {
-      url = "github:numtide/llm-agents.nix";
+    dank-greeter = {
+      url = "github:AvengeMedia/dank-greeter";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-
-    # TODO: migrate from
-    nix-kube-modules.url = "github:coreyoconnor/nix-kube-modules";
   };
 
   outputs = {
@@ -82,7 +80,6 @@
         retronix-vm = {system = "x86_64-linux";};
         thrash = {system = "x86_64-linux";};
         ufo = {system = "x86_64-linux";};
-        # systems that are not in the `computers/<hostname>` structure:
         installer-x86-iso = {
           name = "installer-x86-iso";
           system = "x86_64-linux";
