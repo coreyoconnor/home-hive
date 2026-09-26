@@ -12,7 +12,7 @@ with lib; {
   config = {
     boot = {
       # kernelParams = ["amdgpu.mcbp=0" "amd_iommu=off"];
-      kernelParams = ["amd_iommu=off"];
+      kernelParams = ["amd_iommu=off" "amdgpu.cwsr_enable=0" ];
     };
 
     hardware.graphics = {

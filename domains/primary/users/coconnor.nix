@@ -25,6 +25,7 @@ with pkgs.lib; {
         "transmission"
         "tty"
         "vboxusers"
+        "render"
         "video"
         "wheel"
         "kdm"

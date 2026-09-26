@@ -15,6 +15,7 @@ with lib; {
     ./desktop.nix
     ./developer-base.nix
     ./foreign-binary-emulation.nix
+    ./home-manager.nix
     ./hw-rand.nix
     ./media-presenter.nix
     ./mev-boost

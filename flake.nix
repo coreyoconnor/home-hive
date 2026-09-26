@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:coreyoconnor/nixpkgs/main";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/master";
-    # nixpkgs-unstable.url = "github:coreyoconnor/nixpkgs/unstable";
 
     nix_configs = {
       # I use `dev` branch but you should use `main`
@@ -32,6 +31,7 @@
     };
     voxtype = {
       url = "github:peteonrails/voxtype/main";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     cpu-microcodes = {
@@ -52,6 +52,11 @@
     dank-greeter = {
       url = "github:AvengeMedia/dank-greeter";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    home-manager = {
+      url = "github:nix-community/home-manager/release-26.05";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

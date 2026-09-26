@@ -45,7 +45,6 @@ with lib; {
 
     users.users.coconnor.extraGroups = ["adbusers"];
 
-    # boot.initrd.systemd.tpm2.enable = false;
     security.tpm2.enable = true;
 
     services.foreign-binary-emulation.enable = true;

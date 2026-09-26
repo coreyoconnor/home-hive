@@ -14,7 +14,12 @@ in {
   config = mkIf cfg.enable {
     programs.voxtype = {
       enable = true;
-      package = voxtype.packages.${pkgs.stdenv.hostPlatform.system}.rocm;
+      package = voxtype.packages.${pkgs.stdenv.hostPlatform.system}.onnx-migraphx;
     };
+
+    environment.systemPackages = [
+      voxtype.packages.${pkgs.stdenv.hostPlatform.system}.onnx-migraphx
+      voxtype.packages.${pkgs.stdenv.hostPlatform.system}.osd-gtk4
+    ];
   };
 }

@@ -39,6 +39,8 @@ in {
       scala-cli
       tree-sitter
       zig
+      unzip
+      zip
     ];
 
     nixpkgs.config = {

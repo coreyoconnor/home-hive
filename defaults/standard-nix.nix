@@ -8,6 +8,7 @@
 with lib; {
   config = {
     nix = {
+      channel.enable = false;
       settings = {
         substituters = ["http://ufo:4999"];
 
