@@ -11,8 +11,7 @@ in {
   imports = [
   ];
   config = mkIf cfg.enable {
-    programs.firefox.nativeMessagingHosts.packages = [ nixpkgs-unstable-pkgs.firefoxpwa ];
-    environment.systemPackages = [ nixpkgs-unstable-pkgs.firefoxpwa ];
+    programs.firefox.nativeMessagingHosts.packages = [nixpkgs-unstable-pkgs.firefoxpwa];
+    environment.systemPackages = [nixpkgs-unstable-pkgs.firefoxpwa];
   };
 }
-

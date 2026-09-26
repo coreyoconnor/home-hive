@@ -8,11 +8,11 @@
 }:
 with lib; let
   overlayType = lib.mkOptionType {
-      name = "nixpkgs-overlay";
-      description = "nixpkgs overlay";
-      check = lib.isFunction;
-      merge = lib.mergeOneOption;
-    };
+    name = "nixpkgs-overlay";
+    description = "nixpkgs overlay";
+    check = lib.isFunction;
+    merge = lib.mergeOneOption;
+  };
   overlaysDir = builtins.readDir ./nixpkgs-unstable/overlays;
   itemNames = attrNames overlaysDir;
   isImportable = f:
@@ -34,7 +34,7 @@ in {
         type = lib.types.pkgs;
         default = import nixpkgs-unstable {
           localSystem = pkgs.stdenv.buildPlatform.system;
-          config = { };
+          config = {};
           overlays = config.nixpkgs-unstable.overlays;
         };
       };

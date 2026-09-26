@@ -74,7 +74,7 @@ with lib; let
     };
   };
 
-  lovelace-horizon-card =  pkgs.stdenv.mkDerivation rec {
+  lovelace-horizon-card = pkgs.stdenv.mkDerivation rec {
     pname = "lovelace-horizon-card";
     version = "1.5.3";
 

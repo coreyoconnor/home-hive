@@ -4,7 +4,6 @@
   ...
 }:
 with pkgs.lib; {
-
   users.users = {
     coconnor = {
       isNormalUser = true;

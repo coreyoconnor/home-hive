@@ -89,12 +89,14 @@ in {
     ];
 
     hardware = {
-      graphics = {
-        enable = true;
-      } // (mkIf cfg.use-unstable-mesa {
-        package = config.nixpkgs-unstable.pkgs.mesa;
-        package32 = config.nixpkgs-unstable.pkgs.pkgsi686Linux.mesa;
-      });
+      graphics =
+        {
+          enable = true;
+        }
+        // (mkIf cfg.use-unstable-mesa {
+          package = config.nixpkgs-unstable.pkgs.mesa;
+          package32 = config.nixpkgs-unstable.pkgs.pkgsi686Linux.mesa;
+        });
     };
 
     programs = {
@@ -167,7 +169,7 @@ in {
       enable = true;
     };
 
-    users.groups.plugdev = { };
-    users.groups.uinput = { };
+    users.groups.plugdev = {};
+    users.groups.uinput = {};
   };
 }

@@ -27,9 +27,9 @@ in {
     boot = {
       initrd = {
         systemd = {
-          storePaths = [ cfg.banner ];
+          storePaths = [cfg.banner];
           services.banner = {
-            wantedBy = [ "initrd.target" ];
+            wantedBy = ["initrd.target"];
             serviceConfig = {
               Type = "oneshot";
               ExecStart = "/bin/cat ${cfg.banner}/banner.txt";
@@ -41,4 +41,3 @@ in {
     };
   };
 }
-

@@ -11,6 +11,6 @@ self: super: {
       fetchSubmodules = true;
     };
 
-    buildInputs = oldAttrs.buildInputs ++ [ self.libdex ];
+    buildInputs = oldAttrs.buildInputs ++ [self.libdex];
   });
 }

@@ -5,7 +5,6 @@
   ...
 }:
 with lib; {
-
   config = mkIf config.services.house-manager.enable {
     virtualisation.oci-containers.containers = {
       # https://github.com/tsightler/ring-mqtt-ha-addon/blob/main/config.yaml
@@ -18,7 +17,7 @@ with lib; {
         ];
         serviceName = "ring-mqtt";
         log-driver = "passthrough";
-        extraOptions = [ "--network=host" ];
+        extraOptions = ["--network=host"];
       };
     };
 

@@ -50,6 +50,6 @@ with lib; rec {
     services.journald.console = "/dev/tty12";
 
     # https://github.com/NixOS/nixpkgs/issues/549440
-    boot.kernelModules = [ "ext4" ];
+    boot.kernelModules = ["ext4"];
   };
 }

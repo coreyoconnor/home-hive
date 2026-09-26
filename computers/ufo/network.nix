@@ -11,7 +11,6 @@ with lib; {
     ../../network/home/resource-user-share-server.nix
   ];
   config = {
-
     networking = {
       hostId = "abab4ab2";
       hostName = "ufo";
@@ -45,7 +44,7 @@ with lib; {
     };
 
     services.avahi = {
-      allowInterfaces = [ "enp179s0" ];
+      allowInterfaces = ["enp179s0"];
     };
 
     networking.nftables = {

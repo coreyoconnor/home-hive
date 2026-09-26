@@ -12,7 +12,7 @@ with lib; {
   config = {
     boot = {
       # kernelParams = ["amdgpu.mcbp=0" "amd_iommu=off"];
-      kernelParams = ["amd_iommu=off" "amdgpu.cwsr_enable=0" ];
+      kernelParams = ["amd_iommu=off" "amdgpu.cwsr_enable=0"];
     };
 
     hardware.graphics = {
@@ -32,20 +32,18 @@ with lib; {
       initrd.enable = true;
     };
 
-    systemd.tmpfiles.rules =
-      let
-        rocmEnv = pkgs.symlinkJoin {
-          name = "rocm-combined";
-          paths = with pkgs.rocmPackages; [
-            rocblas
-            hipblas
-            clr
-          ];
-        };
-      in
-      [
-        "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
-      ];
+    systemd.tmpfiles.rules = let
+      rocmEnv = pkgs.symlinkJoin {
+        name = "rocm-combined";
+        paths = with pkgs.rocmPackages; [
+          rocblas
+          hipblas
+          clr
+        ];
+      };
+    in [
+      "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
+    ];
 
     programs.gamemode = {
       enable = true;

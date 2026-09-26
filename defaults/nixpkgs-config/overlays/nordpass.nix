@@ -1,5 +1,4 @@
-self: super: 
-let
+self: super: let
   nordpass = {
     fetchurl,
     lib,
@@ -48,9 +47,7 @@ let
     harfbuzz,
     libsecret,
     buildFHSEnv,
-  }:
-
-  let
+  }: let
     # determine these versions from
     # curl -H 'Snap-Device-Series: 16' http://api.snapcraft.io/v2/snaps/info/nordpass
     version = "7.11.7";
@@ -114,7 +111,7 @@ let
         hash = "sha256-6hgG914fI9mY3IbEP2scEDBXuRqb7kJ5lrCJIvRn2Vw=";
       };
 
-      nativeBuildInputs = [ squashfsTools ];
+      nativeBuildInputs = [squashfsTools];
 
       dontStrip = true;
       dontPatchELF = true;
@@ -157,24 +154,23 @@ let
         description = "Secure and simple password manager for a stress-free online experience";
         license = lib.licenses.unfree;
         mainProgram = "nordpass";
-        platforms = [ "x86_64-linux" ];
-        sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
+        platforms = ["x86_64-linux"];
+        sourceProvenance = with lib.sourceTypes; [binaryNativeCode];
       };
     };
   in
+    buildFHSEnv {
+      inherit (thisPackage) pname version;
+      targetPkgs = _: deps ++ [thisPackage];
+      runScript = "nordpass";
 
-  buildFHSEnv {
-    inherit (thisPackage) pname version;
-    targetPkgs = _: deps ++ [ thisPackage ];
-    runScript = "nordpass";
+      extraInstallCommands = ''
+        mkdir -p "$out/share"
+        cp -r ${thisPackage}/share/* "$out/share/"
+      '';
 
-    extraInstallCommands = ''
-      mkdir -p "$out/share"
-      cp -r ${thisPackage}/share/* "$out/share/"
-    '';
-
-    inherit (thisPackage) meta;
-  };
+      inherit (thisPackage) meta;
+    };
 in {
   nordpass = super.callPackage nordpass {};
 }

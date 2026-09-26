@@ -7,13 +7,13 @@
 with lib; {
   config = mkIf config.services.house-manager.enable {
     # Ensure the tun module and IPv6 packet forwarding are enabled
-    boot.kernelModules = [ "tun" ];
+    boot.kernelModules = ["tun"];
     networking.enableIPv6 = true;
 
     services.openthread-border-router = {
       enable = true;
       openFirewall = true;
-      backboneInterfaces = [ "enp179s0" ];
+      backboneInterfaces = ["enp179s0"];
       interfaceName = "wpan0";
       rest.listenPort = 8081;
       web.listenPort = 8082;
@@ -24,4 +24,3 @@ with lib; {
     };
   };
 }
-
