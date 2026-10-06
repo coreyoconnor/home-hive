@@ -22,6 +22,11 @@ in {
         };
       };
     };
+
+    # silence xkbcomp errors due to kanata
+    # should not be required but here we are.
+    environment.sessionVariables.XKB_COMP_QUIET = "1";
+
     i18n.inputMethod = {
       enable = true;
       type = "fcitx5";

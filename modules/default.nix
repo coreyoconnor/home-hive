@@ -21,6 +21,7 @@ with lib; {
     ./mev-boost
     ./house-manager.nix
     ./semi-active-av.nix
+    ./standard-sql-server.nix
     ./status-tty.nix
     ./teku
     ./ufo-k8s

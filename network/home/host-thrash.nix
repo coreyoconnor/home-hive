@@ -14,7 +14,7 @@ with lib; {
         enable = true;
         networks = {
           KittyMeowMeow = {
-            psk = "ext:psk_kittymeowmeow";
+            pskRaw = "ext:psk_kittymeowmeow";
           };
         };
 

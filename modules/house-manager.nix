@@ -45,8 +45,8 @@ in {
       pkgs = nixpkgs-unstable-pkgs;
     };
 
-    # MQTT, postgresql, home assistant
-    networking.firewall.allowedTCPPorts = [1883 5432 8123 58867];
+    # MQTT, home assistant
+    networking.firewall.allowedTCPPorts = [1883 8123 58867];
     networking.firewall.allowedUDPPorts = [58866];
 
     nixpkgs = {
@@ -59,29 +59,6 @@ in {
         })
       ];
     };
-
-    services.postgresql = {
-      authentication = ''
-        host all all 192.168.88.0/24 trust
-        host all all 10.42.0.0/24 trust
-        host all all 168.254.0.0/16 trust
-      '';
-      dataDir = "/var/lib/postgresql/14";
-      enable = true;
-      enableTCPIP = true;
-      # listenAddresses = "192.168.88.4";
-      enableJIT = true;
-      ensureDatabases = ["hass"];
-      ensureUsers = [
-        {
-          name = "hass";
-          ensureDBOwnership = true;
-        }
-      ];
-      package = pkgs.postgresql_14;
-    };
-
-    systemd.services.postgresql.serviceConfig.TimeoutSec = lib.mkOverride 10 666;
 
     services.matter-server.enable = true;
 
